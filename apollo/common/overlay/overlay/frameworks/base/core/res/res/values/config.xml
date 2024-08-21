@@ -757,5 +757,5 @@
     </string-array>
 
     <bool name="config_zramWriteback">true</bool>
-    <bool name="config_disableLockscreenByDefault">true</bool>
+    <bool name="config_disableLockscreenByDefault">false</bool>
 </resources>
