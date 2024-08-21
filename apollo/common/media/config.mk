@@ -55,7 +55,3 @@ PRODUCT_PACKAGES += \
     android.hardware.media.aw.c2@1.0-service
 endif
 
-BOOTANIMATION_CONFIG_PATH := $(LOCAL_MODULE_PATH)/bootanimation
-PRODUCT_COPY_FILES += \
-    $(BOOTANIMATION_CONFIG_PATH)/bootanimation.zip:system/media/bootanimation.zip
-

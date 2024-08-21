@@ -81,7 +81,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 #systemui hide navigation
 PRODUCT_PROPERTY_OVERRIDES += \
-       qemu.hw.mainkeys = 1
+       qemu.hw.mainkeys = 0
 
 # theme overlay
 PRODUCT_PACKAGES += GoogleSearchGoOverlay
