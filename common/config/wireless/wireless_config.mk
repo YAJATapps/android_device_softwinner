@@ -57,7 +57,7 @@ ifneq (,$(findstring $(BOARD_WIFI_VENDOR),$(SUPPORTED_WIFI_VENDOR)))
     BOARD_WPA_SUPPLICANT_DRIVER := NL80211
     BOARD_HOSTAPD_DRIVER        := NL80211
 
-    ifneq ($(BOARD_WIFI_VENDOR),wlan0)
+    ifneq ($(BOARD_WIFI_VENDOR),common)
         BOARD_WIRELESS_PROPERTIES += persist.vendor.wlan_vendor=$(BOARD_WIFI_VENDOR)
         BOARD_WIRELESS_FILES += $(WIRELESS_CONFIG_PATH)/initrc/init.wireless.wlan.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/init.wireless.wlan.rc
     endif
@@ -99,8 +99,8 @@ ifneq (,$(findstring $(BOARD_WIFI_VENDOR),$(SUPPORTED_WIFI_VENDOR)))
         BOARD_HOSTAPD_PRIVATE_LIB   := lib_driver_cmd_ssv
         BOARD_WIRELESS_PROPERTIES   += wifi.direct.interface=p2p0
         -include hardware/ssv/wlan/firmware/$(BOARD_USR_WIFI)/device-ssv.mk
-    else ifeq ($(BOARD_WIFI_VENDOR),wlan0)
-        BOARD_WLAN_DEVICE           := wlan0
+    else ifeq ($(BOARD_WIFI_VENDOR),common)
+        BOARD_WLAN_DEVICE           := common
         BOARD_WPA_SUPPLICANT_PRIVATE_LIB := lib_driver_cmd_common
         BOARD_HOSTAPD_PRIVATE_LIB   := lib_driver_cmd_common
         BOARD_WIRELESS_PACKAGES     += libwifi-hal-package
@@ -113,8 +113,8 @@ ifneq (,$(findstring $(BOARD_BLUETOOTH_VENDOR),$(SUPPORTED_BLUETOOTH_VENDOR)))
         android.hardware.bluetooth@1.0-impl \
         android.hardware.bluetooth@1.0-service \
         android.hidl.memory@1.0-impl \
-#TODO        libbt \
-#TODO        Bluetooth-vendor \
+        Bluetooth \
+        libbt-vendor \
         uart-bridge \
         vohci \
         audio.a2dp.default

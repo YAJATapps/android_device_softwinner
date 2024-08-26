@@ -178,3 +178,4 @@ $(call soong_config_add,disp,writebackMode,$(WRITE_BACK_MODE))
 
 include hardware/aw/gpu/product_config.mk
 include vendor/aw/homlet/HomletBoardConfig.mk
+# include hardware/aw/display/pq/pq_config.mk

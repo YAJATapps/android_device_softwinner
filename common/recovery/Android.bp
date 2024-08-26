@@ -45,6 +45,8 @@ cc_library_static {
     header_libs: ["update_custom_headers"],
     export_header_lib_headers: ["update_custom_headers"],
 
+    clang: true,
+
     defaults: [
         "libcustom_defaults",
     ],
