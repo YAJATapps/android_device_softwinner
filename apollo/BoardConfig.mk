@@ -113,7 +113,7 @@ BOARD_SB_PARTITION_LIST := system vendor product vendor_dlkm
 BOARD_KERNEL_CMDLINE += androidboot.dynamic_partitions=true
 BOARD_KERNEL_CMDLINE += androidboot.dynamic_partitions_retrofit=true
 # enable init full log,default is disable
-BOARD_KERNEL_CMDLINE += printk.devkmsg=on
+# BOARD_KERNEL_CMDLINE += printk.devkmsg=on
 
 BOARD_SYSTEMIMAGE_FILE_SYSTEM_TYPE ?= ext4
 
