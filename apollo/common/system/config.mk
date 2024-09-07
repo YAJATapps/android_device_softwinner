@@ -175,10 +175,17 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_MODULE_PATH)/init.recovery.sun50iw9p1.rc:root/init.recovery.sun50iw9p1.rc \
     $(LOCAL_MODULE_PATH)/init.recovery.sun50iw9p1.rc:$(TARGET_COPY_OUT_VENDOR_RAMDISK)/init.recovery.sun50iw9p1.rc \
     $(LOCAL_MODULE_PATH)/ueventd.sun50iw9p1.rc:$(TARGET_COPY_OUT_VENDOR)/ueventd.rc \
-    $(LOCAL_MODULE_PATH)/init.sun50iw9p1.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/hw/init.sun50iw9p1.rc \
     $(LOCAL_MODULE_PATH)/init.sun50iw9p1.usb.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/hw/init.sun50iw9p1.usb.rc \
     $(LOCAL_MODULE_PATH)/init.secondmodules.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/init.secondmodules.rc \
     $(LOCAL_MODULE_PATH)/init.scheduler.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/init.scheduler.rc \
+
+ifeq ($(PRODUCT_ORANGE_PI_ZERO_2W), true)
+    PRODUCT_COPY_FILES += \
+        $(LOCAL_MODULE_PATH)/init.sun50iw9p1.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/hw/init.sun50iw9p1.rc
+else
+    PRODUCT_COPY_FILES += \
+        $(LOCAL_MODULE_PATH)/zero3/init.sun50iw9p1.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/hw/init.sun50iw9p1.rc
+endif
 
 PRODUCT_COPY_FILES += \
     device/softwinner/common/config/awbms_config:$(TARGET_COPY_OUT_VENDOR)/etc/awbms_config \
