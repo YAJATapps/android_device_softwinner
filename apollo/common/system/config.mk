@@ -189,11 +189,18 @@ endif
 
 PRODUCT_COPY_FILES += \
     device/softwinner/common/config/awbms_config:$(TARGET_COPY_OUT_VENDOR)/etc/awbms_config \
-    device/softwinner/common/config/tablet_core_hardware.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/tablet_core_hardware.xml \
     frameworks/native/data/etc/android.software.controls.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/permissions/android.software.controls.xml \
     $(LOCAL_MODULE_PATH)/preferred-apps/custom.xml:system/etc/preferred-apps/custom.xml \
     device/softwinner/common/config/android.hardware.location.network.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/permissions/android.hardware.location.network.xml \
     frameworks/native/data/etc/android.hardware.ethernet.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.ethernet.xml \
+
+ifeq ($(PRODUCT_ORANGE_PI_TV), true)
+    PRODUCT_COPY_FILES += \
+        device/softwinner/common/config/tv_core_hardware.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/tv_core_hardware.xml
+else
+    PRODUCT_COPY_FILES += \
+        device/softwinner/common/config/tablet_core_hardware.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/tablet_core_hardware.xml
+endif
 
 # usb and backup permissions file
 PRODUCT_COPY_FILES += \
@@ -261,12 +268,14 @@ else
         dalvik.vm.heapminfree=512k \
         dalvik.vm.heapmaxfree=8m
 
+ifeq ($(PRODUCT_ORANGE_PI_TV), false)
     $(call inherit-product, build/target/product/full_base.mk)
-
-    # Mainline partner build config - updatable APEX
-    MAINLINE_INCLUDE_WIFI_MODULE := false
 
     # launcher
     PRODUCT_PACKAGES += Launcher3QuickStep
+endif
+
+    # Mainline partner build config - updatable APEX
+    MAINLINE_INCLUDE_WIFI_MODULE := false
 
 endif

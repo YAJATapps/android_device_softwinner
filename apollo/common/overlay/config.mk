@@ -25,6 +25,12 @@ ifeq ($(CONFIG_LOW_RAM_DEVICE),true)
     endif # ifeq ($(CONFIG_LOW_RAM_2GB_DEVICE),true))
 endif
 
+ifeq ($(PRODUCT_ORANGE_PI_TV),true)
+    DEVICE_PACKAGE_OVERLAYS := \
+        $(LOCAL_MODULE_PATH)/overlay_tv \
+        $(DEVICE_PACKAGE_OVERLAYS)
+endif
+
 # DEVICE_OVERLAYS is special device overlay dirs. maybe not set.
 DEVICE_PACKAGE_OVERLAYS := \
     $(DEVICE_OVERLAYS) \
