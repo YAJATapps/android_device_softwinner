@@ -192,9 +192,9 @@ PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.software.controls.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/permissions/android.software.controls.xml \
     $(LOCAL_MODULE_PATH)/preferred-apps/custom.xml:system/etc/preferred-apps/custom.xml \
     device/softwinner/common/config/android.hardware.location.network.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/permissions/android.hardware.location.network.xml \
-    frameworks/native/data/etc/android.hardware.ethernet.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.ethernet.xml \
+    frameworks/native/data/etc/android.hardware.ethernet.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.ethernet.xml
 
-ifeq ($(PRODUCT_ORANGE_PI_TV), true)
+ifeq ($(TARGET_PRODUCT),omni_apollo_p2_tv)
     PRODUCT_COPY_FILES += \
         device/softwinner/common/config/tv_core_hardware.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/tv_core_hardware.xml
 else
@@ -268,7 +268,7 @@ else
         dalvik.vm.heapminfree=512k \
         dalvik.vm.heapmaxfree=8m
 
-ifeq ($(PRODUCT_ORANGE_PI_TV), false)
+ifneq ($(TARGET_PRODUCT),omni_apollo_p2_tv)
     $(call inherit-product, build/target/product/full_base.mk)
 
     # launcher
