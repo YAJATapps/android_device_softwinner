@@ -31,6 +31,10 @@ ifeq ($(TARGET_PRODUCT),omni_apollo_p2_tv)
         $(DEVICE_PACKAGE_OVERLAYS)
 endif
 
+ifeq ($(TARGET_PRODUCT),omni_apollo_p2_car)
+    PRODUCT_PACKAGE_OVERLAYS += $(LOCAL_MODULE_PATH)/overlay_car
+endif
+
 # DEVICE_OVERLAYS is special device overlay dirs. maybe not set.
 DEVICE_PACKAGE_OVERLAYS := \
     $(DEVICE_OVERLAYS) \

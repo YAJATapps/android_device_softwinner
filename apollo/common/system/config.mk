@@ -197,6 +197,10 @@ PRODUCT_COPY_FILES += \
 ifeq ($(TARGET_PRODUCT),omni_apollo_p2_tv)
     PRODUCT_COPY_FILES += \
         device/softwinner/common/config/tv_core_hardware.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/tv_core_hardware.xml
+else ifeq ($(TARGET_PRODUCT),omni_apollo_p2_car)
+    PRODUCT_COPY_FILES += \
+        frameworks/native/data/etc/car_core_hardware.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/car_core_hardware.xml \
+        frameworks/native/data/etc/android.hardware.screen.landscape.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.screen.landscape.xml
 else
     PRODUCT_COPY_FILES += \
         device/softwinner/common/config/tablet_core_hardware.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/tablet_core_hardware.xml
