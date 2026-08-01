@@ -52,7 +52,6 @@ on late-fs && property:ro.product.first_api_level=30
 
 on late-fs
     write /proc/bootevent "INIT:late-fs"
-	insmod /vendor/lib/modules/mali_kbase.ko
 
 on post-fs-data
     write /proc/bootevent "INIT:post-fs-data"
