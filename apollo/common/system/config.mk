@@ -121,7 +121,7 @@ PRODUCT_PACKAGES += \
 # call other makefile
 # 32bit android,you should define TARGET_ARCH := arm
 # 64bit android,you should define TARGET_ARCH := arm64
-TARGET_ARCH ?= arm
+TARGET_ARCH ?= arm64
 ifeq ($(TARGET_ARCH),arm)
 $(call inherit-product, $(LOCAL_MODULE_PATH)/apollo_32_bit.mk)
 else ifeq ($(TARGET_ARCH),arm64)
@@ -194,10 +194,10 @@ PRODUCT_COPY_FILES += \
     device/softwinner/common/config/android.hardware.location.network.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/permissions/android.hardware.location.network.xml \
     frameworks/native/data/etc/android.hardware.ethernet.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.ethernet.xml
 
-ifeq ($(TARGET_PRODUCT),omni_apollo_p2_tv)
+ifeq ($(TARGET_PRODUCT),lineage_apollo_p2_tv)
     PRODUCT_COPY_FILES += \
         device/softwinner/common/config/tv_core_hardware.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/tv_core_hardware.xml
-else ifeq ($(TARGET_PRODUCT),omni_apollo_p2_car)
+else ifeq ($(TARGET_PRODUCT),lineage_apollo_p2_car)
     PRODUCT_COPY_FILES += \
         frameworks/native/data/etc/car_core_hardware.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/car_core_hardware.xml \
         frameworks/native/data/etc/android.hardware.screen.landscape.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.screen.landscape.xml
@@ -272,7 +272,7 @@ else
         dalvik.vm.heapminfree=512k \
         dalvik.vm.heapmaxfree=8m
 
-ifneq ($(TARGET_PRODUCT),omni_apollo_p2_tv)
+ifneq ($(TARGET_PRODUCT),lineage_apollo_p2_tv)
     $(call inherit-product, build/target/product/full_base.mk)
 
     # launcher

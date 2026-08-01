@@ -19,7 +19,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
     ro.zygote=zygote64_32
 
 # Car configs already include it
-ifneq ($(TARGET_PRODUCT),omni_apollo_p2_car)
+ifneq ($(TARGET_PRODUCT),lineage_apollo_p2_car)
     # Copy different zygote settings for vendor.img to select by setting property
     # ro.zygote=zygote64_32 or ro.zygote=zygote32_64:
     #   1. 64-bit primary, 32-bit secondary OR
