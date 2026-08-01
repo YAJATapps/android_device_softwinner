@@ -15,17 +15,6 @@ PRODUCT_COPY_FILES += \
 # usb
 # health
 PRODUCT_PACKAGES += \
-	android.hardware.power-service-aw \
     android.hardware.health@2.1-service \
-    android.hardware.health@2.1-impl \
-    android.hardware.usb@1.0-service.aw \
-
-# PRODUCT_PACKAGES += \
-    android.hardware.power-service-aw \
-    android.hardware.memtrack-service.aw
-    #android.hardware.memtrack@1.0-impl \
-    android.hardware.memtrack@1.0-service \
-    memtrack.default \
-    android.hardware.thermal@2.0-service.aw \
-    aw_thermal \
+    android.hardware.health@2.1-impl
 

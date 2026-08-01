@@ -27,7 +27,6 @@ cc_library {
         "libcutils",
         "android.hardware.fastboot@1.0",
         "android.hardware.boot@1.1",
-        "libsst",
         "libext4_utils",
     ],
 }

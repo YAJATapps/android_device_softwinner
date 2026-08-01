@@ -4,9 +4,7 @@ PRODUCT_PACKAGES += android-ex-camera2
 # hal
 PRODUCT_PACKAGES += \
     camera.device@3.5-impl \
-    android.hardware.camera.provider@2.4-impl \
-    libcamera \
-    camera.apollo
+    android.hardware.camera.provider@2.4-impl
 
 
 # properties

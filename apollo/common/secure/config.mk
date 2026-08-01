@@ -6,9 +6,6 @@ BOARD_WIDEVINE_OEMCRYPTO_LEVEL := 3
 BOARD_HAS_SECURE_OS ?= true
 ifeq ($(BOARD_HAS_SECURE_OS), true)
 SECURE_OS_OPTEE := yes
-PRODUCT_PACKAGES += \
-    libteec \
-    tee_supplicant
 
 # keymint version
 BOARD_KEYMINT_VERSION ?= 1
@@ -67,19 +64,9 @@ SECURE_OS_OPTEE := no
 BOARD_WIDEVINE_OEMCRYPTO_LEVEL := 3
 endif # ifeq ($(BOARD_HAS_SECURE_OS), true)
 
-PRODUCT_PACKAGES += \
-    android.hardware.drm@1.0-impl \
-    android.hardware.drm@1.4-service-lazy.widevine \
-    android.hardware.drm@1.4-service-lazy.clearkey \
-
-PRODUCT_PACKAGES += \
-    libwvhidl \
-    libvtswidevine \
-    libwvdrmengine
-
 # PRODUCT_COPY_FILES
 PRODUCT_COPY_FILES += \
-    frameworks/native/data/etc/android.software.verified_boot.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.software.verified_boot.xml \
+    frameworks/native/data/etc/android.software.verified_boot.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.software.verified_boot.xml
 
 $(call inherit-product-if-exists, $(SRC_TARGET_DIR)/product/developer_gsi_keys.mk)
 
@@ -88,12 +75,3 @@ PRODUCT_PACKAGES += android.hardware.security.keymint-service
 # keymint support attest key, copy xml that announce we support this feature
 PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.keystore.app_attest_key.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.keystore.app_attest_key.xml
-
-
-
-# new gatekeeper HAL
-PRODUCT_PACKAGES += \
-    android.hardware.gatekeeper@1.0-impl-aw \
-    android.hardware.gatekeeper@1.0-service-aw \
-    libgatekeeper \
-    gatekeeper.apollo \

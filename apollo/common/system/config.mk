@@ -66,9 +66,6 @@ PRODUCT_PROPERTY_OVERRIDES += ro.boot.dynamic_partitions_retrofit=true
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.rebootescrow.device=/dev/block/pmem0
 
-PRODUCT_PACKAGES += \
-    android.hardware.rebootescrow-service.default
-
 # system
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.frp.pst=/dev/block/by-name/frp \
@@ -83,16 +80,6 @@ PRODUCT_PROPERTY_OVERRIDES += \
 PRODUCT_PROPERTY_OVERRIDES += \
        qemu.hw.mainkeys = 0
 
-# theme overlay
-PRODUCT_PACKAGES += GoogleSearchGoOverlay
-PRODUCT_PACKAGES += AwAccentColorOverlay
-PRODUCT_PACKAGES += AwIconShapeOverlay
-#PRODUCT_PACKAGES += AwGestureOverlay
-
-PRODUCT_PACKAGES += \
-    TimerSwitch
-
-# PRODUCT_PACKAGES
 PRODUCT_PACKAGES += \
     WallpaperPicker2 \
 
@@ -101,16 +88,10 @@ GLOBAL_REMOVED_PACKAGES += \
     Telecom \
     TelephonyProvider
 
-ifneq ($(PRODUCT_HAS_UVC_CAMERA), true)
-PRODUCT_PACKAGES += \
-    AWCamera
-endif
-
 ifneq (,$(filter userdebug eng,$(TARGET_BUILD_VARIANT)))
 # memory debug
 PRODUCT_PACKAGES += dmabuf_dump
 endif
-PRODUCT_PACKAGES += PRODUCT_PACKAGES += vndservicemanager
 
 PRODUCT_USE_DYNAMIC_PARTITIONS := true
 

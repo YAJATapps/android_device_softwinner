@@ -26,7 +26,6 @@ cc_library_static {
         "-Wall",
         "-Wextra",
         "-Werror",
-        "-pedantic",
     ],
 
     srcs: [
@@ -44,8 +43,6 @@ cc_library_static {
 
     header_libs: ["update_custom_headers"],
     export_header_lib_headers: ["update_custom_headers"],
-
-    clang: true,
 
     defaults: [
         "libcustom_defaults",
@@ -72,7 +69,6 @@ cc_defaults {
     cflags: [
         "-Wall",
         "-Wextra",
-        "-pedantic",
         "-Werror",
         "-Wno-unused-parameter",
         "-Wno-unused-variable",
@@ -94,11 +90,8 @@ cc_defaults {
     ],
 
     include_dirs: [
-        "system/extras/boot_control_copy",
         "bootable/recovery",
-        "bootable/recovery/edify/include",
-        "bootable/recovery/otautil/",
-        "bootable/recovery/updater/include",
+        "bootable/recovery/otautil",
     ],
 }
 

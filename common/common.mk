@@ -12,36 +12,16 @@ PRODUCT_COPY_FILES += \
 $(call inherit-product-if-exists, frameworks/av/media/libcedarc/libcdclist.mk)
 $(call inherit-product-if-exists, frameworks/av/media/libcedarx/libcdxlist.mk)
 
-# This package has no sense, just for remove pre-defined packages in other makefile.
-# How to use: Add all packages which needed to remove to GLOBAL_REMOVED_PACKAGES.
-PRODUCT_PACKAGES += PackageOverride
-
 # tools
 PRODUCT_PACKAGES += \
-    mtop \
-    preinstall \
-    preloaddata \
     iperf3
-
-PRODUCT_PACKAGES += misc.img
-
-PRODUCT_PACKAGES += wireless-package
-
-# buildinfo is a host package to speed up `pack` handling.
-PRODUCT_PACKAGES += buildinfo
 
 BUILD_BROKEN_PREBUILT_ELF_FILES := false
 
-PRODUCT_PACKAGES += runin.sh
-
 # Audio
 PRODUCT_PACKAGES += \
-    audio.a2dp.default \
     audio.usb.default \
     audio.r_submix.default
-
-# f2fs format tool for recovery
-PRODUCT_PACKAGES += mkfs.f2fs
 
 USE_XML_AUDIO_POLICY_CONF := 1
 
@@ -74,30 +54,8 @@ TARGET_SYSTEM_PROP := $(TARGET_SYSTEM_PROP) $(LOCAL_PATH)/system.prop
 PRODUCT_SYSTEM_DEFAULT_PROPERTIES += \
     persist.sys.strictmode.disable=1
 
-# for debug
-PRODUCT_PACKAGES += kmsgd awlogd AwlogSettings
-
-
 # DroidBoost config
-PRODUCT_USE_DROIDBOOST := true
-
-ifeq ($(PRODUCT_USE_DROIDBOOST),true)
-# add treadahead
-PRODUCT_PACKAGES += treadahead
-
-#redefine preload classes
-PRODUCT_COPY_FILES += \
-    device/softwinner/common/config/preloaded-classes:system/etc/preloaded-classes
-#Preopt SystemUI and Launcher3
-#PRODUCT_DEXPREOPT_SPEED_APPS += \
-#    SystemUI \
-#    Launcher3QuickStepGo
-else
-PRODUCT_SYSTEM_DEFAULT_PROPERTIES += \
-    persist.sys.droidboost.disable=1 \
-    persist.sys.without.treadahead=1
-endif
-# end DroidBoost
+PRODUCT_USE_DROIDBOOST := false
 
 
 PRODUCT_PROPERTY_OVERRIDES += \

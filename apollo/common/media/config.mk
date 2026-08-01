@@ -10,7 +10,6 @@ USE_XML_AUDIO_POLICY_CONF := 1
 # PRODUCT_PACKAGES
 # Audio
 PRODUCT_PACKAGES += \
-    audio.primary.apollo \
     android.hardware.audio@2.0-service \
     android.hardware.audio@7.0-impl \
     android.hardware.audio.effect@7.0-impl \
@@ -28,7 +27,6 @@ PRODUCT_COPY_FILES += \
     $(AUDIO_CONFIG_PATH)/audio_platform_info.xml:$(TARGET_COPY_OUT_VENDOR)/etc/audio_platform_info.xml \
     $(AUDIO_CONFIG_PATH)/audio_effects.xml:$(TARGET_COPY_OUT_VENDOR)/etc/audio_effects.xml \
     $(AUDIO_CONFIG_PATH)/audio_mixer_paths.xml:$(TARGET_COPY_OUT_VENDOR)/etc/audio_mixer_paths.xml \
-    hardware/aw/audio/equalizer/awequal.conf:$(TARGET_COPY_OUT_VENDOR)/etc/awequal.conf \
 
 # setting default audio output/input
 PRODUCT_PROPERTY_OVERRIDES += \
