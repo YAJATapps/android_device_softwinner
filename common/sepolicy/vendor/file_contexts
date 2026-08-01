@@ -157,7 +157,6 @@
 
 # awdisplay
 /system/bin/displayservice  u:object_r:awdisplay_exec:s0
-/vendor/bin/display.output-service u:object_r:hal_awdisplayoutput_default_exec:s0
 /system/bin/einkservice  u:object_r:awdisplay_exec:s0
 /data/eink(/.*)?         u:object_r:eink_data_file:s0
 
