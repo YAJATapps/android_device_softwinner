@@ -122,7 +122,7 @@ BOARD_SYSTEMIMAGE_FILE_SYSTEM_TYPE ?= ext4
 
 BOARD_USES_VENDORIMAGE ?= true
 BOARD_VENDORIMAGE_FILE_SYSTEM_TYPE ?= ext4
-TARGET_COPY_OUT_VENDOR ?= vendor
+TARGET_COPY_OUT_VENDOR := vendor
 
 BOARD_USES_METADATA_PARTITION ?= true
 
@@ -174,12 +174,7 @@ USE_IOMMU := true
 # recovery touch high threshold
 TARGET_RECOVERY_UI_TOUCH_HIGH_THRESHOLD := 200
 
-TARGET_USES_64_BIT_BINDER := true
 TARGET_SUPPORTS_32_BIT_APPS := true
 TARGET_USES_G2D := true
 WRITE_BACK_MODE := 0
 $(call soong_config_add,disp,writebackMode,$(WRITE_BACK_MODE))
-
-include hardware/aw/gpu/product_config.mk
-include vendor/aw/homlet/HomletBoardConfig.mk
-# include hardware/aw/display/pq/pq_config.mk
