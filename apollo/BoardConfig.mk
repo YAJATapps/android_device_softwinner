@@ -167,7 +167,8 @@ TARGET_USES_MKE2FS := true
 USE_OPENGL_RENDERER := true
 NUM_FRAMEBUFFER_SURFACE_BUFFERS := 2
 TARGET_USES_HWC2 := true
-TARGET_GPU_TYPE := mali-g31
+# Panfrost Open-Source GPU driver configuration
+BOARD_MESA3D_USES_PANFROST := true
 USE_IOMMU := true
 
 # recovery touch high threshold

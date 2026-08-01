@@ -7,7 +7,6 @@ firmware_directories /vendor/etc/firmware/
 /dev/deinterlace            0666    media       camera
 /dev/ace_dev                0666    system      system
 /dev/ump                    0777    system      graphics
-/dev/mali0                  0666    system      graphics
 /dev/dri/card0              0666    system      graphics
 /dev/gralloc                0666    system      graphics
 /dev/dri/controlD64         0666    system      graphics

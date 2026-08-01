@@ -2,8 +2,6 @@
 # to allow write operation from appdomain
 
 # gpu device labeling
-/dev/mali             u:object_r:gpu_device:s0
-/dev/mali0            u:object_r:gpu_device:s0
 /dev/pvr_sync         u:object_r:gpu_device:s0
 /dev/dri/card0        u:object_r:gpu_device:s0
 /dev/dri/controlD64   u:object_r:gpu_device:s0
