@@ -14,7 +14,8 @@ $(call inherit-product-if-exists, frameworks/av/media/libcedarx/libcdxlist.mk)
 
 # tools
 PRODUCT_PACKAGES += \
-    iperf3
+    iperf3 \
+    misc.img
 
 BUILD_BROKEN_PREBUILT_ELF_FILES := false
 
