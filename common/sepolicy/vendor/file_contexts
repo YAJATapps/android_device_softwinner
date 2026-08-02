@@ -155,11 +155,6 @@
 /system/bin/make_ext4fs      u:object_r:e2fs_exec:s0
 /system/bin/format_device    u:object_r:e2fs_exec:s0
 
-# awdisplay
-/system/bin/displayservice  u:object_r:awdisplay_exec:s0
-/system/bin/einkservice  u:object_r:awdisplay_exec:s0
-/data/eink(/.*)?         u:object_r:eink_data_file:s0
-
 # log
 /system/bin/kmsgd      --      u:object_r:kmsgd_exec:s0
 /system/bin/awlogd     --      u:object_r:kmsgd_exec:s0

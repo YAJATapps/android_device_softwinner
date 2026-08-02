@@ -1,4 +1,3 @@
-genfscon fuseblk / u:object_r:vfat:s0
 genfscon sysfs /module/rtc_sunxi u:object_r:sysfs_rtc:s0
 genfscon sysfs /module/sun8iw15_sndcodec u:object_r:sysfs_audio:s0
 genfscon sysfs /module/sun50iw10_sndcodec u:object_r:sysfs_audio:s0
@@ -12,8 +11,6 @@ genfscon sysfs /devices/platform/soc@2900000/7081400.s_twi/i2c-6/6-0034/axp803-u
 genfscon sysfs /devices/platform/soc@2900000/7081400.s_twi/i2c-6/6-0034/axp803-battery-power-supply.0 u:object_r:sysfs_batteryinfo:s0
 genfscon sysfs /devices/platform/soc@2900000/7081400.s_twi/i2c-6/6-0034/axp803-ac-power-supply.0 u:object_r:sysfs_batteryinfo:s0
 genfscon sysfs /devices/platform/soc@2900000/7000000.rtc u:object_r:sysfs_rtc:s0
-genfscon sysfs /devices/virtual/thermal u:object_r:sysfs_thermal:s0
-genfscon sysfs /class/thermal u:object_r:sysfs_thermal:s0
 genfscon sysfs /class/axp/axp_reg  u:object_r:sysfs_axp:s0
 genfscon sysfs /class/sunxi_info/sys_info  u:object_r:sysfs_pqd_r:s0
 genfscon proc /sys/vm/swappiness u:object_r:proc_swappiness:s0

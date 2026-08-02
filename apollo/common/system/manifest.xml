@@ -58,15 +58,7 @@
         <fqname>@1.2::IDrmFactory/widevine</fqname>
     </hal>
 -->
-    <hal format="hidl">
-        <name>android.hardware.graphics.composer</name>
-        <transport>hwbinder</transport>
-        <version>2.2</version>
-        <interface>
-            <name>IComposer</name>
-            <instance>default</instance>
-        </interface>
-    </hal>
+<!-- Graphics composer provided by drm_hwcomposer AIDL (hwc3-drm.xml) -->
     <hal format="hidl">
         <name>android.hardware.media.omx</name>
         <transport>hwbinder</transport>
@@ -91,15 +83,7 @@
     </interface>
     </hal>
 -->
-    <hal format="hidl">
-        <name>android.hardware.health</name>
-        <transport>hwbinder</transport>
-        <version>2.1</version>
-        <interface>
-            <name>IHealth</name>
-            <instance>default</instance>
-        </interface>
-    </hal>
+<!-- Health provided by AOSP AIDL -->
 
     <hal format="hidl">
         <name>android.hardware.graphics.allocator</name>

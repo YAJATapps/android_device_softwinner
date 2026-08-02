@@ -13,8 +13,5 @@ PRODUCT_COPY_FILES += \
 # Memtrack
 # power
 # usb
-# health
-PRODUCT_PACKAGES += \
-    android.hardware.health@2.1-service \
-    android.hardware.health@2.1-impl
+# health HAL provided by AOSP / LineageOS
 
