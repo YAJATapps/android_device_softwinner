@@ -5,6 +5,7 @@ import /vendor/etc/init/hw/init.ram.rc
 import /vendor/etc/init/hw/init.sun50iw9p1.usb.rc
 
 on early-init
+    symlink /dev/mapper/control /dev/device-mapper
     chown system system /proc/bootevent
     chmod 0666 /proc/bootevent
     write /proc/bootevent "INIT:early-init"

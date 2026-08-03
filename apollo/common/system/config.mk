@@ -153,6 +153,7 @@ $(call inherit-product-if-exists, vendor/aw/public/prebuild/lib/librild/radio_co
 
 PRODUCT_COPY_FILES += \
     $(LOCAL_MODULE_PATH)/init.recovery.sun50iw9p1.rc:root/init.recovery.sun50iw9p1.rc \
+    $(LOCAL_MODULE_PATH)/init.recovery.sun50iw9p1.rc:recovery/root/init.recovery.sun50iw9p1.rc \
     $(LOCAL_MODULE_PATH)/init.recovery.sun50iw9p1.rc:$(TARGET_COPY_OUT_VENDOR_RAMDISK)/init.recovery.sun50iw9p1.rc \
     $(LOCAL_MODULE_PATH)/ueventd.sun50iw9p1.rc:$(TARGET_COPY_OUT_VENDOR)/ueventd.rc \
     $(LOCAL_MODULE_PATH)/init.sun50iw9p1.usb.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/hw/init.sun50iw9p1.usb.rc \

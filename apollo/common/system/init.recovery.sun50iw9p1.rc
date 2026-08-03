@@ -1,4 +1,5 @@
 on early-init
+    symlink /dev/mapper/control /dev/device-mapper
     setprop sys.usb.configfs 1
     setprop sys.usb.controller "5100000.udc-controller"
     insmod /init-input.ko

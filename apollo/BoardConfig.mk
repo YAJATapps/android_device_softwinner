@@ -16,6 +16,8 @@ TARGET_CPU_SMP := true
 
 #Reserve0
 BOARD_ROOT_EXTRA_FOLDERS += Reserve0
+BOARD_ROOT_EXTRA_FILES += device/softwinner/apollo/common/storage/fstab.sun50iw9p1:fstab.sun50iw9p1
+BOARD_ROOT_EXTRA_FILES += device/softwinner/apollo/common/storage/fstab.sun50iw9p1:recovery.fstab
 
 TARGET_BOARD_KERN_VER := 5.4
 TARGET_BOARD_CHIP := sun50iw9p1
@@ -63,6 +65,7 @@ BOARD_AVB_RECOVERY_ROLLBACK_INDEX_LOCATION := 3
 BOARD_ADD_PACK_CONFIG += device/softwinner/apollo/apollo-p2/system/sys_partition.fex
 BOARD_ADD_PACK_CONFIG += $(PRODUCT_PLATFORM_PATH)/common/system/env.cfg
 BOARD_ADD_PACK_CONFIG += device/softwinner/apollo/apollo-p2/system/dragon_toc.cfg
+BOARD_ADD_PACK_CONFIG += $(PRODUCT_OUT)/boot.img:boot.img
 # LZ4 ramdisk
 BOARD_RAMDISK_USE_LZ4 := true
 
@@ -115,6 +118,8 @@ BOARD_SB_PARTITION_LIST := system vendor product vendor_dlkm
 # add dynamic prop
 BOARD_KERNEL_CMDLINE += androidboot.dynamic_partitions=true
 BOARD_KERNEL_CMDLINE += androidboot.dynamic_partitions_retrofit=true
+BOARD_KERNEL_CMDLINE += androidboot.slot_suffix=_a
+BOARD_KERNEL_CMDLINE += keep_bootcon
 # enable init full log,default is disable
 # BOARD_KERNEL_CMDLINE += printk.devkmsg=on
 

@@ -68,9 +68,15 @@ PRODUCT_COPY_FILES += \
 TARGET_RECOVERY_FSTAB := $(TARGET_FSTAB)
 PRODUCT_COPY_FILES += \
     $(TARGET_FSTAB):$(TARGET_COPY_OUT_RAMDISK)/fstab.sun50iw9p1 \
+    $(TARGET_FSTAB):$(TARGET_COPY_OUT_RAMDISK)/recovery.fstab \
+    $(TARGET_FSTAB):$(TARGET_COPY_OUT_RAMDISK)/etc/recovery.fstab \
+    $(TARGET_FSTAB):$(TARGET_COPY_OUT_RAMDISK)/system/etc/recovery.fstab \
+    $(TARGET_FSTAB):$(TARGET_COPY_OUT_RAMDISK)/first_stage_ramdisk/fstab.sun50iw9p1 \
+    $(TARGET_FSTAB):$(TARGET_COPY_OUT_RAMDISK)/first_stage_ramdisk/recovery.fstab \
+    $(TARGET_FSTAB):$(TARGET_COPY_OUT_RAMDISK)/first_stage_ramdisk/etc/recovery.fstab \
     $(TARGET_FSTAB):$(TARGET_COPY_OUT_VENDOR)/etc/fstab.sun50iw9p1 \
     $(TARGET_FSTAB):$(TARGET_COPY_OUT_VENDOR_RAMDISK)/first_stage_ramdisk/fstab.sun50iw9p1 \
-    $(TARGET_FSTAB):$(TARGET_COPY_OUT_VENDOR_RAMDISK)/system/etc/recovery.fstab \
+    $(TARGET_FSTAB):$(TARGET_COPY_OUT_VENDOR_RAMDISK)/system/etc/recovery.fstab
 
 # storage
 PRODUCT_PROPERTY_OVERRIDES += \

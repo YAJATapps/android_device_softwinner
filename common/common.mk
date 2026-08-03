@@ -1,6 +1,8 @@
 DEVICE_PACKAGE_OVERLAYS := \
     device/softwinner/common/overlay/base
 
+PRODUCT_BUILD_SYSTEM_EXT_IMAGE := false
+
 PRODUCT_COPY_FILES += \
     device/softwinner/common/init.common.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/hw/init.common.rc \
     device/softwinner/common/init.ram.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/hw/init.ram.rc \
