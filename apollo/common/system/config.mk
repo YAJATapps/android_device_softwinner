@@ -148,6 +148,8 @@ DISABLE_APEX_LIBS_ABSENCE_CHECK := true
 PRODUCT_COPY_FILES += $(LOCAL_MODULE_PATH)/lmkd_whitelist:$(TARGET_COPY_OUT_SYSTEM)/etc/lmkd_whitelist
 # thermal info config
 PRODUCT_COPY_FILES += $(LOCAL_MODULE_PATH)/thermal_info_config.json:$(TARGET_COPY_OUT_VENDOR)/etc/thermal_info_config.json
+# cgroups config
+PRODUCT_COPY_FILES += $(LOCAL_MODULE_PATH)/cgroups.json:$(TARGET_COPY_OUT_VENDOR)/etc/cgroups.json
 
 $(call inherit-product-if-exists, vendor/aw/public/prebuild/lib/librild/radio_common.mk)
 
