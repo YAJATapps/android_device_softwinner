@@ -18,5 +18,7 @@ TARGET_SUPPORTS_64_BIT_APPS := true
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.zygote=zygote64_32
 
-# Zygote is installed automatically by AOSP system/core
+PRODUCT_PACKAGES += \
+    init.zygote64.rc \
+    init.zygote64_32.rc
 

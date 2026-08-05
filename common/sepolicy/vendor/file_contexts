@@ -41,9 +41,16 @@
 
 /dev/i2c-[0-9]                  u:object_r:i2c_device:s0
 
-# graphic mapper
+# graphic mapper & vendor HALs
 /vendor/lib(64)?/hw/android\.hardware\.graphics\.mapper@2\.0-impl-2\.1\.so u:object_r:same_process_hal_file:s0
 /(vendor|system/vendor)/lib(64)*/hw/android.hardware.graphics.mapper@4.0-impl.so     u:object_r:same_process_hal_file:s0
+/vendor/bin/hw/android\.hardware\.composer\.hwc3-service\.drm                         u:object_r:hal_graphics_composer_default_exec:s0
+/vendor/bin/hw/android\.hardware\.camera\.provider@2\.4-external-service             u:object_r:hal_camera_default_exec:s0
+/vendor/bin/hw/android\.hardware\.audio\.service                                        u:object_r:hal_audio_default_exec:s0
+/vendor/bin/hw/android\.hardware\.cas@1\.2-service                                     u:object_r:hal_cas_default_exec:s0
+/vendor/bin/hw/android\.hardware\.media\.omx@1\.0-service                              u:object_r:mediacodec_exec:s0
+/vendor/bin/hw/android\.hardware\.security\.keymint-service                           u:object_r:hal_keymint_default_exec:s0
+/vendor/bin/hw/android\.hardware\.boot@1\.2-service                                    u:object_r:hal_bootctl_default_exec:s0
 
 # cedar_dev
 /dev/cedar_dev             u:object_r:cedar_device:s0
@@ -242,3 +249,6 @@
 #hdcp
 /vendor/bin/hdcptool u:object_r:hdcptool_exec:s0
 /vendor/bin/hdcptool.sh u:object_r:hdcptool_exec:s0
+
+# minigbm graphics allocator
+/vendor/bin/hw/android\.hardware\.graphics\.allocator@4\.0-service\.minigbm u:object_r:hal_graphics_allocator_default_exec:s0

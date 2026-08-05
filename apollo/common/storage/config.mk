@@ -52,8 +52,8 @@ TARGET_FSTAB := $(LOCAL_MODULE_PATH)/fstab.sun50iw9p1.temp
 $(shell cp $(LOCAL_MODULE_PATH)/fstab.sun50iw9p1 $(TARGET_FSTAB))
 ifeq ($(PRODUCT_VIRTUAL_AB), false)
     $(shell sed -i 's/,slotselect//g' $(TARGET_FSTAB))
-    $(shell sed -i '/userdata/i \/dev\/block\/by-name\/cache                               \/cache       ext4     noatime,nosuid,nodev,barrier=1,data=ordered,nomblk_io_submit,noauto_da_alloc,errors=panic wait,check,formattable' $(TARGET_FSTAB))
-    $(shell sed -i '/userdata/i \/dev\/block\/by-name\/recovery                            \/recovery    emmc     defaults                     defaults' $(TARGET_FSTAB))
+    $(shell sed -i '/UDISK/i \/dev\/block\/by-name\/cache                               \/cache       ext4     noatime,nosuid,nodev,barrier=1,data=ordered,nomblk_io_submit,noauto_da_alloc,errors=panic wait,check,formattable' $(TARGET_FSTAB))
+    $(shell sed -i '/UDISK/i \/dev\/block\/by-name\/recovery                            \/recovery    emmc     defaults                     defaults' $(TARGET_FSTAB))
 endif
 BOARD_HAS_SECURE_OS ?= true
 ifneq ($(BOARD_HAS_SECURE_OS), true)

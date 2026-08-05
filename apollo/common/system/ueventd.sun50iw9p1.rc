@@ -1,6 +1,6 @@
 firmware_directories /vendor/etc/firmware/
 
-/dev/device-mapper          0600    system      system
+/dev/device-mapper          0666    system      system
 /dev/disp                   0770    system      system
 /dev/cec                    0770    system      system
 /dev/hdmi                   0770    system      system

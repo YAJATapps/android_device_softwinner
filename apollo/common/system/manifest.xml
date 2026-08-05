@@ -59,6 +59,8 @@
     </hal>
 -->
 <!-- Graphics composer provided by drm_hwcomposer AIDL (hwc3-drm.xml) -->
+<!-- Media OMX is replaced by Codec2 (android.hardware.media.c2) in Android 16 -->
+<!--
     <hal format="hidl">
         <name>android.hardware.media.omx</name>
         <transport>hwbinder</transport>
@@ -72,6 +74,7 @@
             <instance>default</instance>
         </interface>
     </hal>
+-->
 <!--
     <hal format="hidl">
     <name>android.hardware.memtrack</name>
@@ -85,24 +88,7 @@
 -->
 <!-- Health provided by AOSP AIDL -->
 
-    <hal format="hidl">
-        <name>android.hardware.graphics.allocator</name>
-        <transport>hwbinder</transport>
-        <version>2.0</version>
-        <interface>
-            <name>IAllocator</name>
-            <instance>default</instance>
-        </interface>
-    </hal>
-    <hal format="hidl">
-        <name>android.hardware.graphics.mapper</name>
-        <transport arch="32+64">passthrough</transport>
-        <version>2.1</version>
-        <interface>
-            <name>IMapper</name>
-            <instance>default</instance>
-        </interface>
-    </hal>
+
     <hal format="hidl">
         <name>android.hardware.tv.cec</name>
         <transport>hwbinder</transport>
