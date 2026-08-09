@@ -1,5 +1,6 @@
 firmware_directories /vendor/etc/firmware/
 
+/dev/kmsg                   0666    root        root
 /dev/device-mapper          0666    system      system
 /dev/disp                   0770    system      system
 /dev/cec                    0770    system      system
@@ -8,10 +9,10 @@ firmware_directories /vendor/etc/firmware/
 /dev/deinterlace            0666    media       camera
 /dev/ace_dev                0666    system      system
 /dev/ump                    0777    system      graphics
-/dev/dri/card0              0666    system      graphics
+/dev/dri/card*              0666    system      graphics
 /dev/gralloc                0666    system      graphics
 /dev/dri/controlD64         0666    system      graphics
-/dev/dri/renderD128         0666    system      graphics
+/dev/dri/renderD*           0666    system      graphics
 /dev/pvr_sync               0666    system      graphics
 /dev/video*                 0770    camera      camera
 /dev/media*                 0770    camera      camera

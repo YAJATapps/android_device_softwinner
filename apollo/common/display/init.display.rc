@@ -1,4 +1,15 @@
+on post-fs
+    chmod 0666 /dev/dri/card0
+    chmod 0666 /dev/dri/renderD128
+    chown system graphics /dev/dri/card0
+    chown system graphics /dev/dri/renderD128
+
 on boot
+    chmod 0666 /dev/dri/card0
+    chmod 0666 /dev/dri/renderD128
+    chown system graphics /dev/dri/card0
+    chown system graphics /dev/dri/renderD128
+
     # display color enhance
     chown system system /sys/class/disp/disp/attr/color_temperature
     chown system system /sys/class/disp/disp/attr/cvbs_enhacne_mode

@@ -7,14 +7,15 @@ PRODUCT_COPY_FILES += \
 PRODUCT_PACKAGES += \
     libion \
     android.hardware.composer.hwc3-service.drm \
-    android.hardware.graphics.allocator@4.0-service.minigbm \
-    android.hardware.graphics.mapper@4.0-impl.minigbm \
+    android.hardware.graphics.allocator-service.minigbm \
+    mapper.minigbm \
     vulkan.pastel
 
 # display - hdmi-cec
 PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.hdmi.cec.xml:system/etc/permissions/android.hardware.hdmi.cec.xml
 PRODUCT_PROPERTY_OVERRIDES += \
+    ro.hardware.gralloc=minigbm \
     ro.hdmi.device_type=4 \
     debug.sf.no_hw_vsync=1 \
     debug.renderengine.backend=skiagl \
@@ -28,4 +29,3 @@ PRODUCT_SYSTEM_DEFAULT_PROPERTIES += persist.sys.hdmi.keep_awake=false
 
 PRODUCT_SYSTEM_DEFAULT_PROPERTIES += \
     ro.hdmi.set_menu_language=1
-

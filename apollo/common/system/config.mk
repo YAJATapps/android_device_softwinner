@@ -226,6 +226,7 @@ ifeq ($(CONFIG_LOW_RAM_DEVICE),true)
         dalvik.vm.heaptargetutilization=0.75 \
         dalvik.vm.heapminfree=512k \
         dalvik.vm.heapmaxfree=8m \
+        ro.dalvik.vm.enable_uffd_gc=true
 
     $(call inherit-product, device/softwinner/common/go_common.mk)
     $(call inherit-product, $(LOCAL_MODULE_PATH)/go_base.mk)
@@ -266,3 +267,21 @@ endif
     MAINLINE_INCLUDE_WIFI_MODULE := false
 
 endif
+
+# Unconditional ART, UFFD GC, and Kernel 6.12 memfd configuration
+PRODUCT_SYSTEM_PROPERTIES += \
+    sys.use_memfd=true \
+    ro.sys.use_memfd=true
+
+PRODUCT_VENDOR_PROPERTIES += \
+    ro.dalvik.vm.enable_uffd_gc=true \
+    sys.use_memfd=true \
+    ro.sys.use_memfd=true
+
+PRODUCT_PROPERTY_OVERRIDES += \
+    sys.use_memfd=true \
+    ro.sys.use_memfd=true
+
+PRODUCT_ENABLE_UFFD_GC := true
+PRODUCT_ART_USE_READ_BARRIER := false
+
