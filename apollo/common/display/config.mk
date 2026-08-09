@@ -16,9 +16,10 @@ PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.hdmi.cec.xml:system/etc/permissions/android.hardware.hdmi.cec.xml
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.hardware.gralloc=minigbm \
+    ro.hardware.egl=angle \
     ro.hdmi.device_type=4 \
     debug.sf.no_hw_vsync=1 \
-    debug.renderengine.backend=skiagl \
+    debug.renderengine.backend=skiaglthreaded \
     ro.surface_flinger.has_wide_color_display=false \
     ro.surface_flinger.has_HDR_display=false \
     ro.surface_flinger.use_color_management=false \
