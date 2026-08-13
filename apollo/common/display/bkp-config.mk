@@ -25,19 +25,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
     ro.surface_flinger.has_HDR_display=false \
     ro.surface_flinger.use_color_management=false \
     ro.surface_flinger.use_context_priority=false \
-    ro.surface_flinger.max_frame_buffer_acquired_buffers=3 \
-    debug.sf.latch_unsignaled=1 \
-    debug.sf.disable_backpressure=1 \
-    ro.apex.updatable=false \
-    log.tag.drmhwc=VERBOSE \
-    log.tag.SurfaceFlinger=VERBOSE \
-    log.tag.GraphicBufferAllocator=VERBOSE \
-    log.tag.minigbm=VERBOSE \
-    log.tag.hwservicemanager=DEBUG \
-    log.tag.servicemanager=DEBUG \
-    debug.sf.showupdates=1 \
-    debug.sf.log_frame_missed=1 \
-    vendor.minigbm.debug=log_bos
+    ro.apex.updatable=false
 
 PRODUCT_SYSTEM_DEFAULT_PROPERTIES += persist.sys.hdmi.keep_awake=false
 
