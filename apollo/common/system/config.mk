@@ -54,8 +54,6 @@ PRODUCT_SYSTEM_DEFAULT_PROPERTIES += \
 endif
 
 # product properties
-# sf debug
-PRODUCT_PROPERTY_OVERRIDES += debug.sf.latch_unsignaled=1
 
 # drm
 PRODUCT_PROPERTY_OVERRIDES += drm.service.enabled=true
