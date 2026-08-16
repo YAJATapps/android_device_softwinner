@@ -1,4 +1,11 @@
+# GPU sysfs (Panfrost / Mali-G31 on H618)
+# The panfrost node appears as /sys/devices/platform/gpu on most Allwinner H6xx boards
+genfscon sysfs /devices/platform/gpu                   u:object_r:sysfs_gpu:s0
+genfscon sysfs /devices/platform/soc/gpu               u:object_r:sysfs_gpu:s0
+genfscon sysfs /devices/platform/soc@2900000/1800000.gpu u:object_r:sysfs_gpu:s0
+
 # Label wakeup nodes symlinks from /sys/class/wakeup
+
 genfscon sysfs /devices/platform/soc@2900000/7000000.rtc/wakeup/wakeup0                                                                   u:object_r:sysfs_wakeup:s0
 genfscon sysfs /devices/platform/soc@2900000/7000000.rtc/rtc/rtc0/wakeup1                                                                 u:object_r:sysfs_wakeup:s0
 genfscon sysfs /devices/platform/soc@2900000/7081400.s_twi/i2c-6/6-0034/wakeup/wakeup2                                                    u:object_r:sysfs_wakeup:s0

@@ -1,0 +1,2 @@
+# SurfaceFlinger needs GPU access for rendering with Mesa/Panfrost
+gpu_access(surfaceflinger)

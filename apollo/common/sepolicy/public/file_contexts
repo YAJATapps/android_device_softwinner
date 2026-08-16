@@ -1,1 +1,4 @@
-/dev/mali0             u:object_r:gpu_device:s0
+# Panfrost uses DRM device nodes, not the proprietary Mali blob
+# /dev/dri/card0     - KMS/display (sun4i-drm)
+# /dev/dri/renderD128 - GPU render (panfrost)
+# Labelled in vendor/file_contexts with gpu_device
