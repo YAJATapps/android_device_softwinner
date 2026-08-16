@@ -16,6 +16,7 @@ PRODUCT_PACKAGES += \
 
 # PRODUCT_COPY_FILES
 $(call inherit-product, $(LOCAL_MODULE_PATH)/sounds/AudioPackage.mk)
+$(call inherit-product, hardware/interfaces/audio/aidl/default/audio_effects.mk)
 AUDIO_CONFIG_PATH := $(LOCAL_MODULE_PATH)/audio
 PRODUCT_COPY_FILES += \
     frameworks/av/services/audiopolicy/config/usb_audio_policy_configuration.xml:$(TARGET_COPY_OUT_VENDOR)/etc/usb_audio_policy_configuration.xml \
@@ -23,7 +24,6 @@ PRODUCT_COPY_FILES += \
     $(AUDIO_CONFIG_PATH)/audio_policy_configuration.xml:$(TARGET_COPY_OUT_VENDOR)/etc/audio_policy_configuration.xml \
     $(AUDIO_CONFIG_PATH)/audio_policy_volumes_drc.xml:$(TARGET_COPY_OUT_VENDOR)/etc/audio_policy_volumes_drc.xml \
     $(AUDIO_CONFIG_PATH)/audio_platform_info.xml:$(TARGET_COPY_OUT_VENDOR)/etc/audio_platform_info.xml \
-    $(AUDIO_CONFIG_PATH)/audio_effects.xml:$(TARGET_COPY_OUT_VENDOR)/etc/audio_effects.xml \
     $(AUDIO_CONFIG_PATH)/audio_mixer_paths.xml:$(TARGET_COPY_OUT_VENDOR)/etc/audio_mixer_paths.xml \
 
 # setting default audio output/input
