@@ -5,7 +5,13 @@ PRODUCT_COPY_FILES += \
 
 # thermal
 # Memtrack
-# power
-# usb
-# health HAL provided by AOSP / LineageOS
+# power & lights HALs (Standard AOSP APEX / services)
+PRODUCT_PACKAGES += \
+    com.android.hardware.power \
+    android.hardware.lights-service.example
+
+# health HAL (AIDL batteryless for SBC)
+PRODUCT_PACKAGES += \
+    android.hardware.health-service.batteryless
+
 
