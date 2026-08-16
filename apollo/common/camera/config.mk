@@ -27,7 +27,7 @@ PRODUCT_COPY_FILES += \
 ifeq ($(PRODUCT_HAS_UVC_CAMERA),true)
 
 PRODUCT_PACKAGES += \
-    android.hardware.camera.provider@2.4-external-service
+    android.hardware.camera.provider-V1-external-service
 
 PRODUCT_SYSTEM_DEFAULT_PROPERTIES += \
     ro.camera.uvcfacing=front \

@@ -1,8 +1,7 @@
 <manifest version="1.0" type="device" target-level="6">
-    <hal format="hidl">
+    <hal format="aidl">
         <name>android.hardware.camera.provider</name>
-        <transport>hwbinder</transport>
-        <version>2.4</version>
+        <version>1</version>
         <interface>
             <name>ICameraProvider</name>
             <instance>external/0</instance>
