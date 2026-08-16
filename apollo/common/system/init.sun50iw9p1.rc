@@ -132,13 +132,7 @@ service watchdogd /system/bin/watchdogd 5 10
     disabled
     seclabel u:r:watchdogd:s0
 
-# Stream logcat directly to /dev/kmsg so all Java crashes & SystemServer logs print to serial console
-service kmsg_logcat /system/bin/sh -c "/system/bin/logcat -b crash -b main -b system -v threadtime -T 1 > /dev/kmsg"
-    class main
-    user root
-    group root
-    seclabel u:r:su:s0
-    oneshot
+
 
 
 

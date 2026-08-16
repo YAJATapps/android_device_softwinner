@@ -48,11 +48,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
 PRODUCT_PRODUCT_PROPERTIES += \
     ro.charger.enable_suspend=true
 
-# sf control
-PRODUCT_PROPERTY_OVERRIDES += \
-    debug.sf.disable_backpressure=1
-
-TARGET_SYSTEM_PROP := $(TARGET_SYSTEM_PROP) $(LOCAL_PATH)/system.prop
+#TARGET_SYSTEM_PROP := $(TARGET_SYSTEM_PROP) $(LOCAL_PATH)/system.prop
 
 PRODUCT_SYSTEM_DEFAULT_PROPERTIES += \
     persist.sys.strictmode.disable=1
