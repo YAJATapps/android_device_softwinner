@@ -1,22 +1,5 @@
 <manifest version="1.0" type="device" target-level="6">
-    <hal format="hidl">
-        <name>android.hardware.audio</name>
-        <transport>hwbinder</transport>
-        <version>7.0</version>
-        <interface>
-            <name>IDevicesFactory</name>
-            <instance>default</instance>
-        </interface>
-    </hal>
-    <hal format="hidl">
-        <name>android.hardware.audio.effect</name>
-        <transport>hwbinder</transport>
-        <version>7.0</version>
-        <interface>
-            <name>IEffectsFactory</name>
-            <instance>default</instance>
-        </interface>
-    </hal>
+<!-- Audio provided by standard AIDL APEX (com.android.hardware.audio) -->
 <!--    <hal format="hidl">
         <name>android.hardware.soundtrigger</name>
         <transport>hwbinder</transport>
@@ -87,15 +70,5 @@
     </hal>
 -->
 <!-- Health provided by AOSP AIDL -->
-
-
-    <hal format="hidl">
-        <name>android.hardware.tv.cec</name>
-        <transport>hwbinder</transport>
-        <version>1.0</version>
-        <interface>
-            <name>IHdmiCec</name>
-            <instance>default</instance>
-        </interface>
-    </hal>
 </manifest>
+

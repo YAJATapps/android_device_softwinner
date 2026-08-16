@@ -7,12 +7,10 @@ USE_XML_AUDIO_POLICY_CONF := 1
 # PRODUCT_SYSTEM_DEFAULT_PROPERTIES += \
 #    ro.audio.flinger_standbytime_ms=50
 
-# PRODUCT_PACKAGES
 # Audio
 PRODUCT_PACKAGES += \
-    android.hardware.audio@2.0-service \
-    android.hardware.audio@7.0-impl \
-    android.hardware.audio.effect@7.0-impl \
+    com.android.hardware.audio \
+    android.hardware.audio.parameter_parser.example_service \
 
 # Audio
 
