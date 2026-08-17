@@ -53,8 +53,6 @@ PRODUCT_PRODUCT_PROPERTIES += \
 PRODUCT_SYSTEM_DEFAULT_PROPERTIES += \
     persist.sys.strictmode.disable=1
 
-# DroidBoost config
-PRODUCT_USE_DROIDBOOST := false
 
 
 PRODUCT_PROPERTY_OVERRIDES += \
@@ -79,10 +77,6 @@ PRODUCT_SYSTEM_DEFAULT_PROPERTIES += \
     persist.debug.crashdump.enable=false
 endif
 
-#Log for DroidBootstVerison
-$(eval $(shell awk '{print $$1}' device/softwinner/common/config/droidboost.version | grep DroidBoostVerison))
-PRODUCT_SYSTEM_DEFAULT_PROPERTIES += \
-    ro.build.DroidBoost.version=$(DroidBoostVerison)
 
 # OEM Unlock reporting
 PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
