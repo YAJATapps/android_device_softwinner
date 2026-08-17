@@ -57,5 +57,7 @@ PRODUCT_VENDOR_PROPERTIES += \
     ro.hardware.gralloc=minigbm \
     ro.hardware.hwcomposer=drm \
     ro.opengles.version=196610 \
+    ro.vendor.hwc.drm.present_fence_not_reliable=true \
+    ro.vendor.hwc.use_overlay_planes=0 \
     vendor.hwc.drm.device=/dev/dri/card0
 
