@@ -1,7 +1,5 @@
 LOCAL_MODULE_PATH := $(shell dirname $(lastword $(MAKEFILE_LIST)))
 
-$(call inherit-product-if-exists, vendor/aw/homlet/homlet.mk)
-
 # properties
 # system properties
 PRODUCT_PROPERTY_OVERRIDES += \
@@ -136,9 +134,6 @@ PRODUCT_COMPATIBLE_PROPERTY_OVERRIDE := true
 # treble
 BOARD_PROPERTY_OVERRIDES_SPLIT_ENABLED := true
 PRODUCT_FULL_TREBLE_OVERRIDE := true
-
-#this mean [ro.build.characteristics] values
-PRODUCT_CHARACTERISTICS := homlet
 
 CONFIG_USE_ANDROID_MAINLINE := true
 

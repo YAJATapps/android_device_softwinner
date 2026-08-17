@@ -1,7 +1,8 @@
 # BoardConfig.mk
 #
-TARGET_PLATFORM := homlet
+TARGET_PLATFORM := apollo
 TARGET_BOARD_PLATFORM := apollo
+PRODUCT_PLATFORM_PATH ?= device/softwinner/apollo
 $(call soong_config_add,vendor,board,$(TARGET_BOARD_PLATFORM))
 $(call soong_config_add,vendor,platform,$(TARGET_PLATFORM))
 $(call soong_config_add,widevine,cryptolevel,$(BOARD_WIDEVINE_OEMCRYPTO_LEVEL))
