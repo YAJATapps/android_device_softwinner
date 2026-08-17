@@ -25,13 +25,15 @@ ifeq ($(CONFIG_LOW_RAM_DEVICE),true)
     endif # ifeq ($(CONFIG_LOW_RAM_2GB_DEVICE),true))
 endif
 
-ifeq ($(TARGET_PRODUCT),lineage_apollo_p2_tv)
+# TV overlay
+ifneq (,$(filter tv,$(PRODUCT_CHARACTERISTICS)))
     DEVICE_PACKAGE_OVERLAYS := \
         $(LOCAL_MODULE_PATH)/overlay_tv \
         $(DEVICE_PACKAGE_OVERLAYS)
 endif
 
-ifeq ($(TARGET_PRODUCT),lineage_apollo_p2_car)
+# Car / Automotive overlay
+ifneq (,$(filter automotive car,$(PRODUCT_CHARACTERISTICS)))
     PRODUCT_PACKAGE_OVERLAYS += $(LOCAL_MODULE_PATH)/overlay_car
 endif
 

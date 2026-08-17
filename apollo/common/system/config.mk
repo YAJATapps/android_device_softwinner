@@ -176,13 +176,16 @@ PRODUCT_COPY_FILES += \
     device/softwinner/common/config/android.hardware.location.network.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/permissions/android.hardware.location.network.xml \
     frameworks/native/data/etc/android.hardware.ethernet.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.ethernet.xml
 
-ifeq ($(TARGET_PRODUCT),lineage_apollo_p2_tv)
+# TV: copy TV core hardware permissions
+ifneq (,$(filter tv,$(PRODUCT_CHARACTERISTICS)))
     PRODUCT_COPY_FILES += \
         device/softwinner/common/config/tv_core_hardware.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/tv_core_hardware.xml
-else ifeq ($(TARGET_PRODUCT),lineage_apollo_p2_car)
+# Automotive / Car: copy car core hardware and screen landscape permissions
+else ifneq (,$(filter automotive car,$(PRODUCT_CHARACTERISTICS)))
     PRODUCT_COPY_FILES += \
         frameworks/native/data/etc/car_core_hardware.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/car_core_hardware.xml \
         frameworks/native/data/etc/android.hardware.screen.landscape.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.screen.landscape.xml
+# Default (Tablet / Handheld): copy tablet core hardware permissions
 else
     PRODUCT_COPY_FILES += \
         device/softwinner/common/config/tablet_core_hardware.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/tablet_core_hardware.xml
@@ -255,7 +258,8 @@ else
         dalvik.vm.heapminfree=512k \
         dalvik.vm.heapmaxfree=8m
 
-ifneq ($(TARGET_PRODUCT),lineage_apollo_p2_tv)
+# Non-TV devices inherit full_base and default launcher
+ifeq (,$(filter tv,$(PRODUCT_CHARACTERISTICS)))
     $(call inherit-product, build/target/product/full_base.mk)
 
     # launcher
