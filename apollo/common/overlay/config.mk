@@ -3,17 +3,10 @@ LOCAL_MODULE_PATH := $(shell dirname $(lastword $(MAKEFILE_LIST)))
 -include vendor/aw/public/package/rro/rro.mk
 
 # overlay
-ifeq ($(PRODUCT_ORANGE_PI_ZERO_2W), true)
-    DEVICE_PACKAGE_OVERLAYS := \
-        $(LOCAL_MODULE_PATH)/overlay \
-        $(LOCAL_MODULE_PATH)/overlay_rro \
-        $(DEVICE_PACKAGE_OVERLAYS)
-else
-    DEVICE_PACKAGE_OVERLAYS := \
-        $(LOCAL_MODULE_PATH)/overlay_zero3 \
-        $(LOCAL_MODULE_PATH)/overlay_rro \
-        $(DEVICE_PACKAGE_OVERLAYS)
-endif
+DEVICE_PACKAGE_OVERLAYS := \
+    $(LOCAL_MODULE_PATH)/overlay \
+    $(LOCAL_MODULE_PATH)/overlay_rro \
+    $(DEVICE_PACKAGE_OVERLAYS)
 
 ifeq ($(CONFIG_LOW_RAM_DEVICE),true)
     ifeq ($(CONFIG_LOW_RAM_2GB_DEVICE),true)
