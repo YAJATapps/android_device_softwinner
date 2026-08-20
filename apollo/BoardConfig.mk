@@ -1,3 +1,10 @@
+# Architecture
+TARGET_ARCH := arm64
+TARGET_ARCH_VARIANT := armv8-a
+TARGET_CPU_ABI := arm64-v8a
+TARGET_CPU_ABI2 :=
+TARGET_CPU_VARIANT := generic
+
 # BoardConfig.mk
 #
 TARGET_PLATFORM := apollo
@@ -169,8 +176,6 @@ MALLOC_SVELTE := true
 DEVICE_MANIFEST_FILE += $(PRODUCT_PLATFORM_PATH)/common/system/manifest.xml
 DEVICE_MATRIX_FILE := $(PRODUCT_PLATFORM_PATH)/common/system/compatibility_matrix.xml
 
-DEVICE_PRODUCT_COMPATIBILITY_MATRIX_FILE := $(PRODUCT_PLATFORM_PATH)/common/system/compatibility_matrix_product.xml
-
 # When PRODUCT_SHIPPING_API_LEVEL >= 27, TARGET_USES_MKE2FS must be true
 TARGET_USES_MKE2FS := true
 
@@ -182,7 +187,7 @@ USE_IOMMU := true
 # recovery touch high threshold
 TARGET_RECOVERY_UI_TOUCH_HIGH_THRESHOLD := 200
 
-TARGET_SUPPORTS_32_BIT_APPS := true
+TARGET_SUPPORTS_32_BIT_APPS := false
 TARGET_USES_G2D := true
 WRITE_BACK_MODE := 0
 $(call soong_config_add,disp,writebackMode,$(WRITE_BACK_MODE))

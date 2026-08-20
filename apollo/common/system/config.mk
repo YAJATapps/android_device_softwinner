@@ -60,11 +60,11 @@ PRODUCT_PROPERTY_OVERRIDES += drm.service.enabled=true
 PRODUCT_PROPERTY_OVERRIDES += ro.boot.dynamic_partitions_retrofit=true
 
 PRODUCT_PROPERTY_OVERRIDES += \
+    ro.config.sleep_disabled=true \
     ro.rebootescrow.device=/dev/block/pmem0
 
 # system
 PRODUCT_PROPERTY_OVERRIDES += \
-    ro.frp.pst=/dev/block/by-name/frp \
     ro.control_privapp_permissions=log \
     init.userspace_reboot.is_supported=1 \
 
@@ -100,15 +100,8 @@ PRODUCT_USE_DYNAMIC_PARTITIONS := true
 PRODUCT_PACKAGES += \
     fastbootd
 
-# call other makefile
-# 32bit android,you should define TARGET_ARCH := arm
-# 64bit android,you should define TARGET_ARCH := arm64
-TARGET_ARCH ?= arm64
-ifeq ($(TARGET_ARCH),arm)
-$(call inherit-product, $(LOCAL_MODULE_PATH)/apollo_32_bit.mk)
-else ifeq ($(TARGET_ARCH),arm64)
-$(call inherit-product, $(LOCAL_MODULE_PATH)/apollo_64_bit.mk)
-endif
+# 64-bit platform inheritance
+$(call inherit-product, $(SRC_TARGET_DIR)/product/core_64_bit_only.mk)
 
 $(call inherit-product, device/softwinner/common/pad.mk)
 $(call inherit-product-if-exists, vendor/aw/public/tool.mk)
@@ -264,9 +257,6 @@ ifeq (,$(filter tv,$(PRODUCT_CHARACTERISTICS)))
     # launcher
     PRODUCT_PACKAGES += Launcher3QuickStep
 endif
-
-    # Mainline partner build config - updatable APEX
-    MAINLINE_INCLUDE_WIFI_MODULE := false
 
 endif
 
