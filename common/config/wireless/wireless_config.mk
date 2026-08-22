@@ -9,21 +9,17 @@ PRODUCT_PACKAGES += \
     libwpa_client \
     wpa_supplicant \
     hostapd \
-    wificond \
-    uwe5622_bsp_sdio.ko \
-    sprdwl_ng.ko \
-    sprdbt_tty.ko
+    wificond
 
 
-# AOSP Wi-Fi Permissions & Firmware
+# AOSP Wi-Fi Permissions & Configuration
 PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.wifi.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.wifi.xml \
     frameworks/native/data/etc/android.hardware.wifi.direct.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.wifi.direct.xml \
     frameworks/native/data/etc/android.hardware.wifi.passpoint.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.wifi.passpoint.xml \
-    device/softwinner/apollo/common/wireless/firmware/uwe5622/wcnmodem.bin:$(TARGET_COPY_OUT_VENDOR)/etc/firmware/uwe5622/wcnmodem.bin \
-    device/softwinner/apollo/common/wireless/firmware/uwe5622/wifi_2355b001_1ant.ini:$(TARGET_COPY_OUT_VENDOR)/etc/firmware/uwe5622/wifi_2355b001_1ant.ini \
     device/softwinner/apollo/common/wireless/wifi_hal/uwe5622.xml:$(TARGET_COPY_OUT_VENDOR)/etc/wifi/vendor_hals/uwe5622.xml \
     device/softwinner/apollo/common/wireless/wpa_supplicant.conf:$(TARGET_COPY_OUT_VENDOR)/etc/wifi/wpa_supplicant.conf
+
 
 
 
