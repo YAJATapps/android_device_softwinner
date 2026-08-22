@@ -1,0 +1,21 @@
+//
+// Copyright (C) 2026 The Android Open Source Project
+//
+
+cc_library_shared {
+    name: "libwifi-hal-uwe5622",
+    vendor: true,
+    srcs: ["wifi_hal.cpp"],
+    header_libs: [
+        "wifi_legacy_headers",
+    ],
+    shared_libs: [
+        "liblog",
+        "libcutils",
+    ],
+    cflags: [
+        "-Wall",
+        "-Werror",
+        "-Wextra",
+    ],
+}

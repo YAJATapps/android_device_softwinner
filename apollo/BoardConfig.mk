@@ -133,6 +133,8 @@ BOARD_KERNEL_CMDLINE += androidboot.force_super_partition=super
 BOARD_KERNEL_CMDLINE += androidboot.partition_map=mmcblk0p5,super;mmcblk0p13,metadata;mmcblk0p4,boot;mmcblk0p7,misc;mmcblk0p15,media_data
 BOARD_KERNEL_CMDLINE += root=/dev/ram0
 BOARD_KERNEL_CMDLINE += keep_bootcon
+BOARD_KERNEL_CMDLINE += console=ttyS0,115200
+BOARD_KERNEL_CMDLINE += androidboot.console=ttyS0
 # enable init full log,default is disable
 BOARD_KERNEL_CMDLINE += printk.devkmsg=on
 
@@ -191,3 +193,9 @@ TARGET_SUPPORTS_32_BIT_APPS := false
 TARGET_USES_G2D := true
 WRITE_BACK_MODE := 0
 $(call soong_config_add,disp,writebackMode,$(WRITE_BACK_MODE))
+
+# Wi-Fi WPA Supplicant & Hostapd NL80211 Configuration
+BOARD_HOSTAPD_DRIVER        := NL80211
+BOARD_WPA_SUPPLICANT_DRIVER := NL80211
+WPA_SUPPLICANT_VERSION      := VER_0_8_X
+

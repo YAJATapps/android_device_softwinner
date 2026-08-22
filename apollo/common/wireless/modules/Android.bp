@@ -1,0 +1,25 @@
+// Prebuilt kernel modules for UWE5622
+package {
+    default_applicable_licenses: ["Android-Apache-2.0"],
+}
+
+prebuilt_etc {
+    name: "uwe5622_bsp_sdio.ko",
+    src: "uwe5622_bsp_sdio.ko",
+    sub_dir: "modules",
+    vendor: true,
+}
+
+prebuilt_etc {
+    name: "sprdwl_ng.ko",
+    src: "sprdwl_ng.ko",
+    sub_dir: "modules",
+    vendor: true,
+}
+
+prebuilt_etc {
+    name: "sprdbt_tty.ko",
+    src: "sprdbt_tty.ko",
+    sub_dir: "modules",
+    vendor: true,
+}

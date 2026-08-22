@@ -96,8 +96,6 @@
 # for dragonface
 /file_contexts.bin              u:object_r:file_contexts_file:s0
 
-# cgroup
-/dev/stune(/.*)?                u:object_r:cgroup:s0
 
 # Bluetooth
 /dev/ttyS1              u:object_r:hci_attach_dev:s0

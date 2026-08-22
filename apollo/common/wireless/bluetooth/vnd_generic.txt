@@ -1,6 +1,6 @@
 #Set baudrate to 1500000
 UART_TARGET_BAUD_RATE = 1500000
-BLUETOOTH_UART_DEVICE_PORT = "/dev/ttyAS1"
+BLUETOOTH_UART_DEVICE_PORT = "/dev/ttyS1"
 FW_PATCHFILE_LOCATION = "/vendor/etc/firmware/"
 VENDOR_LIB_CONF_FILE = "/vendor/etc/bluetooth/bt_vendor.conf"
 LPM_IDLE_TIMEOUT_MULTIPLE = 5

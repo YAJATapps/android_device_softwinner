@@ -1,4 +1,4 @@
-firmware_directories /vendor/etc/firmware/
+firmware_directories /vendor/etc/firmware/ /vendor/etc/firmware/uwe5622/
 
 /dev/kmsg                   0666    root        root
 /dev/device-mapper          0666    system      system
@@ -45,5 +45,14 @@ firmware_directories /vendor/etc/firmware/
 /dev/input/*                0660    system      input
 /dev/sunxi_drm_heap         0777    system      graphics
 
+# bluetooth
+/dev/ttyS*                  0660    bluetooth   bluetooth
+/dev/ttyBT*                 0660    bluetooth   bluetooth
+/dev/rfkill                 0666    wifi        bluetooth
+/dev/uhid                   0660    bluetooth   bluetooth
+
 # sysfs properties
 /sys/devices/virtual/input/input*   delay          0660  root   input
+/sys/devices/virtual/rfkill/rfkill* state          0666  wifi   bluetooth
+/sys/devices/virtual/rfkill/rfkill* soft           0666  wifi   bluetooth
+

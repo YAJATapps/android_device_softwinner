@@ -7,12 +7,16 @@ import /vendor/etc/init/hw/init.sun50iw9p1.usb.rc
 on early-init
     write /proc/sys/vm/unprivileged_userfaultfd 1
     symlink /dev/mapper/control /dev/device-mapper
+    setrlimit rtprio 10 10
+    setrlimit nice 40 40
 
     chown system system /proc/bootevent
     chmod 0666 /proc/bootevent
     write /proc/bootevent "INIT:early-init"
 
 on init
+    setrlimit rtprio 10 10
+    setrlimit nice 40 40
     # Set permissions for persist partition
     mkdir /persist 0771 system system
     mkdir /firmware 0771 system system
@@ -21,23 +25,21 @@ on init
     symlink /sdcard /mnt/sdcard
     symlink /sdcard /storage/sdcard0
 
-    start watchdogd
+    # start watchdogd
 
     # Setup zram options
     write /sys/block/zram0/comp_algorithm lz4
     mkdir /oem 0550 system system
     export PATH /vendor/xbin:/product/bin:/apex/com.android.runtime/bin:/apex/com.android.art/bin:/system_ext/bin:/system/bin:/system/xbin:/odm/bin:/vendor/bin
 
+
+    # Allow real-time scheduling bandwidth (SCHED_FIFO / SCHED_RR)
+    write /proc/sys/kernel/sched_rt_runtime_us 950000
+    write /proc/sys/kernel/sched_rt_period_us 1000000
+
+
 on late-init
     write /proc/bootevent "INIT:late-init"
-
-on early-boot
-    # Update dm-verity state and set partition.*.verified properties
-    verity_update_state
-
-#on early-fs
-#    wait /dev/block/by-name/media_data
-#    mount vfat /dev/block/by-name/media_data /oem ro nosuid nodev utf8,context=u:object_r:oemfs:s0
 
 on fs
     write /proc/bootevent "INIT:Mount_START"
@@ -49,20 +51,46 @@ on fs
 on post-fs
     write /proc/bootevent "INIT:post-fs"
 
-on late-fs && property:ro.product.first_api_level=30
-    # Wait for keymaster
-    exec_start wait_for_keymaster
-
-on late-fs
-    write /proc/bootevent "INIT:late-fs"
-
 on post-fs-data
     write /proc/bootevent "INIT:post-fs-data"
     # Set indication (checked by vold) that we have finished this action
     setprop vold.post_fs_data_done 1
     chmod 666 /sys/kernel/tracing/trace
 
+    # create file for audio dump data
+    mkdir /data/vendor/hardware/audio_d 0777 audio audio
+    mkdir /data/audio_d 0777 media media
+    chown system system /dev/nsi
+    chmod 0660 /dev/nsi
+
+    # Create the directories used by the Wireless subsystem
+    mkdir /data/vendor/wifi 0771 wifi wifi
+    mkdir /data/vendor/wifi/wpa 0770 wifi wifi
+    mkdir /data/vendor/wifi/wpa/sockets 0770 wifi wifi
+    copy /vendor/etc/wifi/wpa_supplicant.conf /data/vendor/wifi/wpa/wpa_supplicant.conf
+    chmod 0660 /data/vendor/wifi/wpa/wpa_supplicant.conf
+    chown wifi wifi /data/vendor/wifi/wpa/wpa_supplicant.conf
+    mkdir /data/misc/wifi 0770 wifi wifi
+    mkdir /data/misc/wifi/sockets 0770 wifi wifi
+    mkdir /data/misc/wifi/wpa_supplicant 0770 wifi wifi
+
+
+on early-boot
+    # Insmod vendor kernel modules after filesystems and firmware paths are mounted
+    insmod /vendor/etc/modules/uwe5622_bsp_sdio.ko
+    insmod /vendor/etc/modules/sprdwl_ng.ko
+    insmod /vendor/etc/modules/sprdbt_tty.ko
+
 on boot
+    # Wi-Fi and Bluetooth RFKILL permissions & unblock
+    chmod 0666 /dev/rfkill
+    write /sys/class/rfkill/rfkill0/state 1
+    write /sys/class/rfkill/rfkill0/soft 0
+    chmod 0666 /sys/class/rfkill/rfkill0/state
+    chmod 0666 /sys/class/rfkill/rfkill0/soft
+    chmod 0666 /sys/class/rfkill/rfkill1/state
+    chmod 0666 /sys/class/rfkill/rfkill1/soft
+
     write /proc/bootevent "INIT:boot"
     chown system system /sys/kernel/debug/sync/sw_sync
     chmod 0660 /sys/kernel/debug/sync/sw_sync
@@ -70,29 +98,6 @@ on boot
     # Read one page at a time for swap (default is 8)
     write /proc/sys/vm/page-cluster 0
 
-on post-fs-data
-    # create file for audio dump data
-    mkdir /data/vendor/hardware/audio_d 0777 audio audio
-    mkdir /data/audio_d 0777 media media
-    chown system system /dev/nsi
-    chmod 0660 /dev/nsi
-
-on charger
-    chown system system /dev/alarm
-    chmod 0660 /dev/alarm
-    mkdir /config/usb_gadget/g1 0770 shell shell
-    mkdir /config/usb_gadget/g1/strings/0x409 0770 shell shell
-    write /config/usb_gadget/g1/idVendor 0x18d1
-    write /config/usb_gadget/g1/idProduct 0x0001
-    mkdir /config/usb_gadget/g1/functions/mass_storage.usb0
-    mkdir /config/usb_gadget/g1/configs/c.1
-    write /config/usb_gadget/g1/configs/c.1/bmAttributes 0xc0
-    write /config/usb_gadget/g1/configs/c.1/MaxPower 500
-    mkdir /config/usb_gadget/g1/configs/c.1/strings/0x409
-    symlink /config/usb_gadget/g1/functions/mass_storage.usb0 /config/usb_gadget/g1/configs/c.1/f1
-    write /config/usb_gadget/g1/UDC "5100000.udc-controller"
-
-on boot
     chown system system /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor
     chmod 0660 /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor
 
@@ -105,9 +110,6 @@ on boot
     write /sys/class/disp/disp/attr/runtime_enable 1
     write /sys/kernel/autohotplug/enable 1
     write /sys/kernel/autohotplug/boost_all 0
-
-    # Read one page at a time for swap (default is 8)
-    write /proc/sys/vm/page-cluster 0
 
 on property:sys.boot_completed=1
     insmod /vendor/lib/modules/kheaders.ko
@@ -128,10 +130,14 @@ on property:sys.boot_completed=1
 # Set watchdog timer to 15 seconds and pet it every 5 seconds to get a 10 second margin
 service watchdogd /system/bin/watchdogd 5 10
     class core
+    user root
+    group root
     disabled
     seclabel u:r:watchdogd:s0
 
+on property:sys.boot_completed=1
+    start console
 
-
-
+on boot
+    start console
 
