@@ -59,6 +59,15 @@ PRODUCT_PROPERTY_OVERRIDES += drm.service.enabled=true
 # dynamic partitions
 PRODUCT_PROPERTY_OVERRIDES += ro.boot.dynamic_partitions_retrofit=true
 
+# Timezone & Locale
+PRODUCT_PROPERTY_OVERRIDES += \
+    persist.sys.timezone=America/New_York \
+    persist.sys.timezone_confidence=100 \
+    persist.sys.country=US \
+    persist.sys.language=en
+
+
+
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.config.sleep_disabled=true \
     ro.rebootescrow.device=/dev/block/pmem0
