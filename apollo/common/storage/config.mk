@@ -9,11 +9,10 @@ endif
 ifeq ($(PRODUCT_VIRTUAL_AB), true)
 
 PRODUCT_VIRTUAL_AB := true
-# boot hal
+# AIDL BootControl HAL
 PRODUCT_PACKAGES += \
-    android.hardware.boot@1.2-service \
-    android.hardware.boot@1.2-impl \
-    android.hardware.boot@1.2-impl.recovery
+    com.android.hardware.boot \
+    android.hardware.boot-service.default_recovery
 
 # Virtual AB
 
