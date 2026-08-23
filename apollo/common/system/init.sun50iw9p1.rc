@@ -113,7 +113,6 @@ on boot
 
 on property:sys.boot_completed=1
     insmod /vendor/lib/modules/kheaders.ko
-    write /proc/sys/vm/drop_caches 3
     # Tweak background writeout
     write /proc/sys/vm/dirty_expire_centisecs 200
     write /proc/sys/vm/dirty_background_ratio  5
