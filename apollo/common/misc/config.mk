@@ -10,8 +10,8 @@ PRODUCT_PACKAGES += \
     com.android.hardware.power \
     android.hardware.lights-service.example
 
-# health HAL (AIDL batteryless for SBC)
+# health HAL (AIDL Health V4)
 PRODUCT_PACKAGES += \
-    android.hardware.health-service.batteryless
+    android.hardware.health-service.example
 
 
