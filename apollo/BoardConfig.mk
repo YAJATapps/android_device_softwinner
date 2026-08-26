@@ -14,6 +14,9 @@ $(call soong_config_add,vendor,board,$(TARGET_BOARD_PLATFORM))
 $(call soong_config_add,vendor,platform,$(TARGET_PLATFORM))
 $(call soong_config_add,widevine,cryptolevel,$(BOARD_WIDEVINE_OEMCRYPTO_LEVEL))
 
+# Enable LineageOS minigbm gbm_mesa driver
+$(call soong_config_set_bool,minigbm_upstream,enable_gbm_mesa_driver,true)
+
 
 # Enable dex-preoptimization to speed up first boot sequence
 WITH_DEXPREOPT := true
@@ -134,8 +137,8 @@ BOARD_KERNEL_CMDLINE += androidboot.partition_map=mmcblk0p5,super;mmcblk0p13,met
 BOARD_KERNEL_CMDLINE += root=/dev/ram0
 BOARD_KERNEL_CMDLINE += keep_bootcon
 BOARD_KERNEL_CMDLINE += console=ttyS0,115200
-BOARD_KERNEL_CMDLINE += androidboot.console=ttyS0
-# enable init full log,default is disable
+BOARD_KERNEL_CMDLINE += cma=128M
+BOARD_KERNEL_CMDLINE += swiotlb=65536
 BOARD_KERNEL_CMDLINE += printk.devkmsg=on
 
 BOARD_SYSTEMIMAGE_FILE_SYSTEM_TYPE ?= ext4

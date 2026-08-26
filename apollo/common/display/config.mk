@@ -10,42 +10,29 @@ PRODUCT_COPY_FILES += \
 
 PRODUCT_PACKAGES += \
     libion \
-    com.android.hardware.graphics.composer.drm_hwcomposer \
-    android.hardware.graphics.allocator-service.minigbm \
-    mapper.minigbm
+    com.android.hardware.graphics.composer.drm_hwcomposer_upstream \
+    android.hardware.graphics.allocator-service.minigbm_upstream \
+    mapper.minigbm_upstream
 
 
-
+# ==============================================================================
+# Core HAL & Graphics Backend Definitions
+# ==============================================================================
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.hardware.egl=mesa \
     ro.hardware.gralloc=minigbm \
-    debug.sf.no_hw_vsync=1 \
-    debug.renderengine.backend=skiagl \
-    ro.surface_flinger.has_wide_color_display=false \
-    ro.surface_flinger.has_HDR_display=false \
-    ro.surface_flinger.use_color_management=false \
-    ro.surface_flinger.use_context_priority=false \
-    ro.surface_flinger.max_frame_buffer_acquired_buffers=3 \
-    debug.sf.latch_unsignaled=0 \
+    vendor.minigbm.generic_backend=gbm_mesa \
+    debug.renderengine.backend=skiaglthreaded
 
-    debug.sf.disable_backpressure=0 \
-    debug.sf.enable_gl_backpressure=1 \
-    debug.sf.log_frame_missed=0 \
-    debug.hwui.renderer=skiagl \
-    vendor.minigbm.debug=0 \
-    service.sf.prime_shader_cache=1
-
-
-
+# ==============================================================================
+# Vendor Device Nodes & Core HAL Properties
+# ==============================================================================
 PRODUCT_VENDOR_PROPERTIES += \
-    ro.hardware.egl=mesa \
-    ro.hardware.vulkan=panfrost \
-    ro.hardware.gralloc=minigbm \
     ro.hardware.hwcomposer=drm \
+    ro.hardware.egl=mesa \
+    ro.hardware.gralloc=minigbm \
+    vendor.minigbm.generic_backend=gbm_mesa \
     ro.opengles.version=196609 \
-    ro.vendor.hwc.drm.present_fence_not_reliable=true \
-    ro.vendor.hwc.use_overlay_planes=0 \
     vendor.hwc.drm.device=/dev/dri/card0 \
-    vendor.hwc.drm.ctm=DRM_OR_IGNORE \
-    vendor.hwc.drm.force_mode=1920x1080
+    vendor.minigbm.device=/dev/dri/renderD128
 

@@ -1,3 +1,10 @@
+on early-init
+    export GBM_BACKENDS_PATH /vendor/lib64
+    export GBM_BACKEND dri
+    export LIBGL_DRIVERS_PATH /vendor/lib64
+    export MESA_LOADER_DRIVER_OVERRIDE libgallium
+    export GALLIUM_DRIVER panfrost
+
 on post-fs
     chmod 0666 /dev/dri/card0
     chmod 0666 /dev/dri/renderD128

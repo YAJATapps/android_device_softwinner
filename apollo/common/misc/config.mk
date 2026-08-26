@@ -10,8 +10,11 @@ PRODUCT_PACKAGES += \
     com.android.hardware.power \
     android.hardware.lights-service.example
 
-# health HAL (AIDL Health V4)
+# health HAL (Standard AOSP AIDL Health V4)
 PRODUCT_PACKAGES += \
     android.hardware.health-service.example
+
+PRODUCT_VENDOR_PROPERTIES += \
+    ro.charger.no_ui=true
 
 
