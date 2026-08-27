@@ -16,13 +16,10 @@ PRODUCT_PACKAGES += \
 
 
 # ==============================================================================
-# Core HAL & Graphics Backend Definitions
+# Core System Graphics Properties
 # ==============================================================================
 PRODUCT_PROPERTY_OVERRIDES += \
-    ro.hardware.egl=mesa \
-    ro.hardware.gralloc=minigbm \
-    vendor.minigbm.generic_backend=gbm_mesa \
-    debug.renderengine.backend=skiaglthreaded
+    debug.renderengine.backend=skiagl
 
 # ==============================================================================
 # Vendor Device Nodes & Core HAL Properties
@@ -36,3 +33,18 @@ PRODUCT_VENDOR_PROPERTIES += \
     vendor.hwc.drm.device=/dev/dri/card0 \
     vendor.minigbm.device=/dev/dri/renderD128
 
+
+# ==============================================================================
+# SurfaceFlinger & HWUI Display Pipeline Settings
+# ==============================================================================
+PRODUCT_PROPERTY_OVERRIDES += \
+    debug.hwui.renderer=skiagl \
+    debug.hwui.use_partial_updates=false \
+    debug.sf.disable_client_composition_cache=1
+
+# ==============================================================================
+# Vendor DRM HWC & KMS Settings
+# ==============================================================================
+PRODUCT_VENDOR_PROPERTIES += \
+    ro.vendor.hwc.drm.avoid_using_alpha_bits_for_framebuffer=true \
+    ro.vendor.hwc.drm.disable_planes=true
