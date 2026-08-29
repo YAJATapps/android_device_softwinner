@@ -40,15 +40,20 @@ BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR := $(BOARD_BLUETOOTH_CONFIG_DIR)
 PRODUCT_PACKAGES += \
     android.hardware.bluetooth-service.default
 
-# AOSP Bluetooth Permissions & Init
+# AOSP Bluetooth Permissions, Configs & Init
 PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.bluetooth.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.bluetooth.xml \
     frameworks/native/data/etc/android.hardware.bluetooth_le.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.bluetooth_le.xml \
-    device/softwinner/common/config/wireless/initrc/init.wireless.bluetooth.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/init.wireless.bluetooth.rc
+    device/softwinner/common/config/wireless/initrc/init.wireless.bluetooth.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/init.wireless.bluetooth.rc \
+    device/softwinner/apollo/common/wireless/bluetooth/bt_configure_pskey.ini:$(TARGET_COPY_OUT_VENDOR)/etc/bt_configure_pskey.ini \
+    device/softwinner/apollo/common/wireless/bluetooth/bt_configure_rf.ini:$(TARGET_COPY_OUT_VENDOR)/etc/bt_configure_rf.ini \
+    device/softwinner/apollo/common/wireless/bluetooth/bt_vendor.conf:$(TARGET_COPY_OUT_VENDOR)/etc/bluetooth/bt_vendor.conf \
+    device/softwinner/apollo/common/wireless/bluetooth/vnd_generic.txt:$(TARGET_COPY_OUT_VENDOR)/etc/bluetooth/vnd_generic.txt
 
 # Bluetooth Properties
 PRODUCT_PROPERTY_OVERRIDES += \
     bluetooth.enable_timeout_ms=8000 \
     ro.bluetooth.ble_address_type=1 \
-    persist.vendor.bluetooth_port=/dev/ttyS1 \
-    vendor.ser.bt-uart=/dev/ttyBT0
+    persist.vendor.bluetooth_port=/dev/ttyBT0 \
+    vendor.ser.bt-uart=/dev/ttyBT0 \
+    bluetooth.core.le.vendor_capabilities.enabled=false
