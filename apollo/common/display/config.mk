@@ -20,7 +20,9 @@ PRODUCT_PACKAGES += \
 # ==============================================================================
 PRODUCT_PROPERTY_OVERRIDES += \
     debug.renderengine.backend=skiaglthreaded \
-    debug.hwui.renderer=skiagl
+    debug.hwui.renderer=skiagl \
+    debug.hwui.webview_overlays=false
+
 
 # ==============================================================================
 # Vendor Device Nodes & Core HAL Properties

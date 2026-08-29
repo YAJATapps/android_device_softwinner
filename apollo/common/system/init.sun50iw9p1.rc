@@ -57,6 +57,12 @@ on post-fs-data
     setprop vold.post_fs_data_done 1
     chmod 666 /sys/kernel/tracing/trace
 
+    # Provision Chromium WebView flags for Linux 6.x
+    mkdir /data/local/tmp 0771 shell shell
+    write /data/local/tmp/webview-command-line "_ --no-sandbox"
+    chmod 0666 /data/local/tmp/webview-command-line
+
+
     # create file for audio dump data
     mkdir /data/vendor/hardware/audio_d 0777 audio audio
     mkdir /data/audio_d 0777 media media

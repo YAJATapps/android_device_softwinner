@@ -41,9 +41,11 @@ firmware_directories /vendor/etc/firmware/ /vendor/etc/firmware/uwe5622/
 /dev/block/pmem0            0660    system      system
 /dev/tee0                   0776    media       mediadrm
 /dev/teepriv0               0776    media       mediadrm
-/dev/watchdog   	    0660    system      system
+/dev/watchdog               0660    system      system
+
 /dev/input/*                0660    system      input
 /dev/sunxi_drm_heap         0777    system      graphics
+/dev/dma_heap/*              0666    system      graphics
 
 # bluetooth
 /dev/ttyS*                  0660    bluetooth   bluetooth
