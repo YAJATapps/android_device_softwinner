@@ -133,13 +133,17 @@ BOARD_KERNEL_CMDLINE += androidboot.slot_suffix=_a
 BOARD_KERNEL_CMDLINE += androidboot.force_normal_boot=1
 BOARD_KERNEL_CMDLINE += androidboot.boot_devices=any
 BOARD_KERNEL_CMDLINE += androidboot.force_super_partition=super
-BOARD_KERNEL_CMDLINE += androidboot.partition_map=mmcblk0p5,super;mmcblk0p13,metadata;mmcblk0p4,boot;mmcblk0p7,misc;mmcblk0p15,media_data
+BOARD_KERNEL_CMDLINE += androidboot.partition_map=mmcblk0p9,super;mmcblk0p10,misc;mmcblk0p5,boot;mmcblk0p19,metadata;mmcblk0p23,media_data;mmcblk0p17,frp;mmcblk0p1,bootloader;mmcblk0p3,env
+
 BOARD_KERNEL_CMDLINE += root=/dev/ram0
 BOARD_KERNEL_CMDLINE += keep_bootcon
 BOARD_KERNEL_CMDLINE += console=ttyS0,115200
 BOARD_KERNEL_CMDLINE += cma=128M
 BOARD_KERNEL_CMDLINE += swiotlb=65536
 BOARD_KERNEL_CMDLINE += printk.devkmsg=on
+BOARD_KERNEL_CMDLINE += video=HDMI-A-1:1920x1080@60
+
+
 
 BOARD_SYSTEMIMAGE_FILE_SYSTEM_TYPE ?= ext4
 
