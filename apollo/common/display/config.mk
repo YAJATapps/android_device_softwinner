@@ -19,7 +19,8 @@ PRODUCT_PACKAGES += \
 # Core System Graphics Properties
 # ==============================================================================
 PRODUCT_PROPERTY_OVERRIDES += \
-    debug.renderengine.backend=skiagl
+    debug.renderengine.backend=skiaglthreaded \
+    debug.hwui.renderer=skiagl
 
 # ==============================================================================
 # Vendor Device Nodes & Core HAL Properties
@@ -31,20 +32,8 @@ PRODUCT_VENDOR_PROPERTIES += \
     vendor.minigbm.generic_backend=gbm_mesa \
     ro.opengles.version=196609 \
     vendor.hwc.drm.device=/dev/dri/card0 \
-    vendor.minigbm.device=/dev/dri/renderD128
-
-
-# ==============================================================================
-# SurfaceFlinger & HWUI Display Pipeline Settings
-# ==============================================================================
-PRODUCT_PROPERTY_OVERRIDES += \
-    debug.hwui.renderer=skiagl \
-    debug.hwui.use_partial_updates=false \
-    debug.sf.disable_client_composition_cache=1
-
-# ==============================================================================
-# Vendor DRM HWC & KMS Settings
-# ==============================================================================
-PRODUCT_VENDOR_PROPERTIES += \
+    vendor.minigbm.device=/dev/dri/renderD128 \
     ro.vendor.hwc.drm.avoid_using_alpha_bits_for_framebuffer=true \
     ro.vendor.hwc.drm.disable_planes=true
+
+
