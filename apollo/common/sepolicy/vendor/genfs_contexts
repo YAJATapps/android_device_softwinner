@@ -2,7 +2,16 @@
 # The panfrost node appears as /sys/devices/platform/gpu on most Allwinner H6xx boards
 genfscon sysfs /devices/platform/gpu                   u:object_r:sysfs_gpu:s0
 genfscon sysfs /devices/platform/soc/gpu               u:object_r:sysfs_gpu:s0
+genfscon sysfs /devices/platform/soc/1800000.gpu       u:object_r:sysfs_gpu:s0
 genfscon sysfs /devices/platform/soc@2900000/1800000.gpu u:object_r:sysfs_gpu:s0
+
+# MMC block device stats for storaged
+genfscon sysfs /devices/platform/soc/4020000.mmc       u:object_r:sysfs_devices_block:s0
+genfscon sysfs /devices/platform/soc/4021000.mmc       u:object_r:sysfs_devices_block:s0
+genfscon sysfs /devices/platform/soc/4022000.mmc       u:object_r:sysfs_devices_block:s0
+genfscon sysfs /devices/platform/soc/4020000.sdmmc     u:object_r:sysfs_devices_block:s0
+genfscon sysfs /devices/platform/soc/4021000.sdmmc     u:object_r:sysfs_devices_block:s0
+genfscon sysfs /devices/platform/soc/4022000.sdmmc     u:object_r:sysfs_devices_block:s0
 
 # Label wakeup nodes symlinks from /sys/class/wakeup
 

@@ -23,4 +23,7 @@
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <!-- Indicates that connected MAC randomization is supported on this device -->
     <bool translatable="false" name="config_wifi_connected_mac_randomization_supported">false</bool>
+    <!-- Disable WPA2 to WPA3 SAE auto-upgrade for UWE5622 -->
+    <bool translatable="false" name="config_wifiSaeUpgradeEnabled">false</bool>
+    <bool translatable="false" name="config_wifiOweUpgradeEnabled">false</bool>
 </resources>

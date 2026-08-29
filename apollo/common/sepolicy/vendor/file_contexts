@@ -13,4 +13,5 @@
 /vendor/lib(64)?/libdrm\.so              u:object_r:same_process_hal_file:s0
 /vendor/lib(64)?/hw/vulkan\.panfrost\.so u:object_r:same_process_hal_file:s0
 /dev/dri(/.*)?                           u:object_r:gpu_device:s0
+/dev/rfkill                              u:object_r:rfkill_device:s0
 
