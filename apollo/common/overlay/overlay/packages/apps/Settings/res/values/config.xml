@@ -26,4 +26,8 @@
     <!-- Cell broacast receiver package name -->
     <string name="config_cell_broadcast_receiver_package" translatable="false">com.google.android.cellbroadcastreceiver</string>
 
+    <!-- Hide top-level battery settings for batteryless boards -->
+    <bool name="config_show_top_level_battery">false</bool>
+
 </resources>
+
