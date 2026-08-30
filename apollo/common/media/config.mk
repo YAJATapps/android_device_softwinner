@@ -2,17 +2,10 @@ LOCAL_MODULE_PATH := $(shell dirname $(lastword $(MAKEFILE_LIST)))
 
 USE_XML_AUDIO_POLICY_CONF := 1
 
-# properties
-# audio default output standby_ms
-# PRODUCT_SYSTEM_DEFAULT_PROPERTIES += \
-#    ro.audio.flinger_standbytime_ms=50
-
 # Audio
 PRODUCT_PACKAGES += \
     com.android.hardware.audio \
-    android.hardware.audio.parameter_parser.example_service \
-
-# Audio
+    android.hardware.audio.parameter_parser.example_service
 
 # PRODUCT_COPY_FILES
 $(call inherit-product, $(LOCAL_MODULE_PATH)/sounds/AudioPackage.mk)
@@ -26,30 +19,29 @@ PRODUCT_COPY_FILES += \
     frameworks/av/services/audiopolicy/config/r_submix_audio_policy_configuration.xml:$(TARGET_COPY_OUT_VENDOR)/etc/r_submix_audio_policy_configuration.xml \
     frameworks/av/services/audiopolicy/config/bluetooth_audio_policy_configuration_7_0.xml:$(TARGET_COPY_OUT_VENDOR)/etc/bluetooth_audio_policy_configuration_7_0.xml \
     frameworks/av/services/audiopolicy/config/audio_policy_volumes.xml:$(TARGET_COPY_OUT_VENDOR)/etc/audio_policy_volumes.xml \
-    frameworks/av/services/audiopolicy/config/default_volume_tables.xml:$(TARGET_COPY_OUT_VENDOR)/etc/default_volume_tables.xml \
+    frameworks/av/services/audiopolicy/config/default_volume_tables.xml:$(TARGET_COPY_OUT_VENDOR)/etc/default_volume_tables.xml
 
 # setting default audio output/input
 PRODUCT_PROPERTY_OVERRIDES += \
     vendor.audio.output.active=AUDIO_CODEC,AUDIO_HDMI \
     vendor.audio.input.active=AUDIO_AC107
 
-# codec
+# V4L2 Hardware Codec2 Service
+PRODUCT_SOONG_NAMESPACES += external/v4l2_codec2
+
+PRODUCT_PACKAGES += \
+    android.hardware.media.c2-service-v4l2 \
+    libc2plugin_store
+
+PRODUCT_PROPERTY_OVERRIDES += \
+    ro.vendor.v4l2_codec2.decode_concurrent_instances=4 \
+    ro.vendor.v4l2_codec2.encode_concurrent_instances=4
+
+# Media Codecs Configuration
 CODEC_CONFIG_PATH := $(LOCAL_MODULE_PATH)/codec
 PRODUCT_COPY_FILES += \
     $(CODEC_CONFIG_PATH)/media_codecs.xml:$(TARGET_COPY_OUT_VENDOR)/etc/media_codecs.xml \
-    $(CODEC_CONFIG_PATH)/media_codecs_performance.xml:$(TARGET_COPY_OUT_VENDOR)/etc/media_codecs_performance.xml
-
-MEDIA_CTS_TEST_ENABLE := true
-ifneq ($(MEDIA_CTS_TEST_ENABLE), true)
-PRODUCT_COPY_FILES += \
-    $(CODEC_CONFIG_PATH)/media_codecs.xml:$(TARGET_COPY_OUT_VENDOR)/etc/media_codecs.xml \
-    $(CODEC_CONFIG_PATH)/media_codecs_allwinner_video.xml:$(TARGET_COPY_OUT_VENDOR)/etc/media_codecs_allwinner_video.xml \
+    $(CODEC_CONFIG_PATH)/media_codecs_v4l2_c2_video.xml:$(TARGET_COPY_OUT_VENDOR)/etc/media_codecs_v4l2_c2_video.xml \
     $(CODEC_CONFIG_PATH)/media_codecs_google_audio.xml:$(TARGET_COPY_OUT_VENDOR)/etc/media_codecs_google_audio.xml \
     $(CODEC_CONFIG_PATH)/media_codecs_google_video.xml:$(TARGET_COPY_OUT_VENDOR)/etc/media_codecs_google_video.xml \
-    $(CODEC_CONFIG_PATH)/mediacodec-arm.policy:$(TARGET_COPY_OUT_VENDOR)/etc/seccomp_policy/mediacodec.policy \
-    $(CODEC_CONFIG_PATH)/media_codecs_c2.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/media_codecs.xml \
-
-PRODUCT_PACKAGES += \
-    android.hardware.media.aw.c2@1.0-service
-endif
-
+    $(CODEC_CONFIG_PATH)/media_codecs_performance.xml:$(TARGET_COPY_OUT_VENDOR)/etc/media_codecs_performance.xml

@@ -10,9 +10,6 @@ PRODUCT_COPY_FILES += \
 PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.software.ipsec_tunnels.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.software.ipsec_tunnels.xml
 
-#media
-$(call inherit-product-if-exists, frameworks/av/media/libcedarc/libcdclist.mk)
-$(call inherit-product-if-exists, frameworks/av/media/libcedarx/libcdxlist.mk)
 
 # tools
 PRODUCT_PACKAGES += \

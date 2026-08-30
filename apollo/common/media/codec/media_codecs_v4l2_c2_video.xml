@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!--
+     Copyright (C) 2026 The LineageOS Project
+     SPDX-License-Identifier: Apache-2.0
+-->
+<MediaCodecs>
+    <Decoders>
+        <!-- H.264 / AVC V4L2 Hardware Decoder (Cedrus) -->
+        <MediaCodec name="c2.v4l2.avc.decoder" type="video/avc">
+            <Limit name="size" min="16x16" max="3840x2160" />
+            <Limit name="alignment" value="2x2" />
+            <Limit name="block-size" value="16x16" />
+            <Limit name="blocks-per-second" min="1" max="1879200" />
+            <Limit name="bitrate" range="1-62500000" />
+            <Limit name="concurrent-instances" max="4" />
+            <Limit name="performance-point-1920x1080" range="60-60" />
+            <Limit name="performance-point-3840x2160" range="30-30" />
+            <Feature name="adaptive-playback" />
+        </MediaCodec>
+
+        <!-- H.265 / HEVC V4L2 Hardware Decoder (Cedrus) -->
+        <MediaCodec name="c2.v4l2.hevc.decoder" type="video/hevc">
+            <Limit name="size" min="16x16" max="3840x2160" />
+            <Limit name="alignment" value="2x2" />
+            <Limit name="block-size" value="16x16" />
+            <Limit name="blocks-per-second" min="1" max="1879200" />
+            <Limit name="bitrate" range="1-62500000" />
+            <Limit name="concurrent-instances" max="4" />
+            <Limit name="performance-point-1920x1080" range="60-60" />
+            <Limit name="performance-point-3840x2160" range="30-30" />
+            <Feature name="adaptive-playback" />
+        </MediaCodec>
+
+        <!-- VP8 V4L2 Hardware Decoder (Cedrus) -->
+        <MediaCodec name="c2.v4l2.vp8.decoder" type="video/x-vnd.on2.vp8">
+            <Limit name="size" min="16x16" max="1920x1080" />
+            <Limit name="alignment" value="2x2" />
+            <Limit name="block-size" value="16x16" />
+            <Limit name="blocks-per-second" min="1" max="489600" />
+            <Limit name="bitrate" range="1-40000000" />
+            <Limit name="concurrent-instances" max="4" />
+            <Limit name="performance-point-1920x1080" range="60-60" />
+            <Feature name="adaptive-playback" />
+        </MediaCodec>
+    </Decoders>
+</MediaCodecs>

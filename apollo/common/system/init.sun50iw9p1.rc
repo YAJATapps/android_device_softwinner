@@ -86,8 +86,22 @@ on early-boot
     insmod /vendor/etc/modules/uwe5622_bsp_sdio.ko
     insmod /vendor/etc/modules/sprdwl_ng.ko
     insmod /vendor/etc/modules/sprdbt_tty.ko
+    insmod /vendor_dlkm/lib/modules/mc.ko
+    insmod /vendor_dlkm/lib/modules/videodev.ko
+    insmod /vendor_dlkm/lib/modules/videobuf2-common.ko
+    insmod /vendor_dlkm/lib/modules/videobuf2-memops.ko
+    insmod /vendor_dlkm/lib/modules/videobuf2-v4l2.ko
+    insmod /vendor_dlkm/lib/modules/videobuf2-dma-contig.ko
+    insmod /vendor_dlkm/lib/modules/v4l2-mem2mem.ko
+    insmod /vendor_dlkm/lib/modules/sunxi-cedrus.ko
 
 on boot
+    # VPU hardware video decoder node permissions
+    chmod 0666 /dev/video0
+    chmod 0666 /dev/media0
+    chown media media /dev/video0
+    chown media media /dev/media0
+
     # Wi-Fi and Bluetooth RFKILL permissions & unblock
     chmod 0666 /dev/rfkill
     write /sys/class/rfkill/rfkill0/state 1
