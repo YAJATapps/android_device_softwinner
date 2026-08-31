@@ -6,3 +6,8 @@ allow mediacodec sunxi_soc_device:chr_file rw_file_perms;
 allow mediacodec cedar_device:chr_file map;
 allow mediacodec drm_heap_device:chr_file { open ioctl read write };
 allow mediacodec vendor_codec2_prop:file { read open getattr map };
+allow mediacodec video_device:dir r_dir_perms;
+allow mediacodec video_device:chr_file rw_file_perms;
+allow mediacodec gpu_device:chr_file rw_file_perms;
+allow mediacodec dmabuf_system_heap_device:chr_file r_file_perms;
+

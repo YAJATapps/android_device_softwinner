@@ -34,6 +34,10 @@ PRODUCT_PACKAGES += \
     libc2plugin_store
 
 PRODUCT_PROPERTY_OVERRIDES += \
+    media.c2.hal.selection=aidl \
+    debug.c2.use_dmabufheaps=1 \
+    debug.stagefright.c2-poolmask=458752 \
+    debug.stagefright.c2inputsurface=-1 \
     ro.vendor.v4l2_codec2.decode_concurrent_instances=4 \
     ro.vendor.v4l2_codec2.encode_concurrent_instances=4
 
@@ -42,6 +46,9 @@ CODEC_CONFIG_PATH := $(LOCAL_MODULE_PATH)/codec
 PRODUCT_COPY_FILES += \
     $(CODEC_CONFIG_PATH)/media_codecs.xml:$(TARGET_COPY_OUT_VENDOR)/etc/media_codecs.xml \
     $(CODEC_CONFIG_PATH)/media_codecs_v4l2_c2_video.xml:$(TARGET_COPY_OUT_VENDOR)/etc/media_codecs_v4l2_c2_video.xml \
-    $(CODEC_CONFIG_PATH)/media_codecs_google_audio.xml:$(TARGET_COPY_OUT_VENDOR)/etc/media_codecs_google_audio.xml \
-    $(CODEC_CONFIG_PATH)/media_codecs_google_video.xml:$(TARGET_COPY_OUT_VENDOR)/etc/media_codecs_google_video.xml \
-    $(CODEC_CONFIG_PATH)/media_codecs_performance.xml:$(TARGET_COPY_OUT_VENDOR)/etc/media_codecs_performance.xml
+    frameworks/av/media/libstagefright/data/media_codecs_google_c2_audio.xml:$(TARGET_COPY_OUT_VENDOR)/etc/media_codecs_google_c2_audio.xml \
+    frameworks/av/media/libstagefright/data/media_codecs_google_c2_video.xml:$(TARGET_COPY_OUT_VENDOR)/etc/media_codecs_google_c2_video.xml \
+    $(CODEC_CONFIG_PATH)/media_codecs_performance.xml:$(TARGET_COPY_OUT_VENDOR)/etc/media_codecs_performance.xml \
+    $(LOCAL_MODULE_PATH)/seccomp_policy/mediaswcodec.policy:$(TARGET_COPY_OUT_VENDOR)/etc/seccomp_policy/mediaswcodec.policy \
+    $(LOCAL_MODULE_PATH)/seccomp_policy/mediacodec.policy:$(TARGET_COPY_OUT_VENDOR)/etc/seccomp_policy/mediacodec.policy \
+    $(LOCAL_MODULE_PATH)/seccomp_policy/android.hardware.media.c2-extended-seccomp_policy:$(TARGET_COPY_OUT_VENDOR)/etc/seccomp_policy/android.hardware.media.c2-extended-seccomp_policy

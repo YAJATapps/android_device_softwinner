@@ -3,7 +3,7 @@
      Copyright (C) 2026 The LineageOS Project
      SPDX-License-Identifier: Apache-2.0
 -->
-<MediaCodecs>
+<Included>
     <Decoders>
         <!-- H.264 / AVC V4L2 Hardware Decoder (Cedrus) -->
         <MediaCodec name="c2.v4l2.avc.decoder" type="video/avc">
@@ -43,4 +43,4 @@
             <Feature name="adaptive-playback" />
         </MediaCodec>
     </Decoders>
-</MediaCodecs>
+</Included>
