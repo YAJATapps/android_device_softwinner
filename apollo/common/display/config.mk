@@ -12,7 +12,8 @@ PRODUCT_PACKAGES += \
     libion \
     com.android.hardware.graphics.composer.drm_hwcomposer_upstream \
     android.hardware.graphics.allocator-service.minigbm_upstream \
-    mapper.minigbm_upstream
+    mapper.minigbm_upstream \
+    gralloc.minigbm_upstream
 
 
 # ==============================================================================
@@ -30,7 +31,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
 PRODUCT_VENDOR_PROPERTIES += \
     ro.hardware.hwcomposer=drm \
     ro.hardware.egl=mesa \
-    ro.hardware.gralloc=minigbm \
+    ro.hardware.gralloc=minigbm_upstream \
     vendor.minigbm.generic_backend=gbm_mesa \
     ro.opengles.version=196609 \
     vendor.hwc.drm.device=/dev/dri/card0 \
