@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!--
+     Copyright (C) 2026 The LineageOS Project
+     SPDX-License-Identifier: Apache-2.0
+-->
+<Included>
+    <Decoders>
+        <!-- H.264 / AVC FFmpeg Decoder -->
+        <MediaCodec name="c2.ffmpeg.h264.decoder" type="video/avc">
+            <Limit name="size" min="16x16" max="3840x2160" />
+            <Limit name="alignment" value="2x2" />
+            <Limit name="block-size" value="16x16" />
+            <Limit name="blocks-per-second" min="1" max="1879200" />
+            <Limit name="bitrate" range="1-62500000" />
+            <Limit name="concurrent-instances" max="8" />
+            <Limit name="performance-point-1920x1080" range="60-60" />
+            <Limit name="performance-point-3840x2160" range="30-30" />
+            <Feature name="adaptive-playback" />
+        </MediaCodec>
+
+        <!-- H.265 / HEVC FFmpeg Decoder -->
+        <MediaCodec name="c2.ffmpeg.hevc.decoder" type="video/hevc">
+            <Limit name="size" min="16x16" max="3840x2160" />
+            <Limit name="alignment" value="2x2" />
+            <Limit name="block-size" value="16x16" />
+            <Limit name="blocks-per-second" min="1" max="1879200" />
+            <Limit name="bitrate" range="1-62500000" />
+            <Limit name="concurrent-instances" max="8" />
+            <Limit name="performance-point-1920x1080" range="60-60" />
+            <Limit name="performance-point-3840x2160" range="30-30" />
+            <Feature name="adaptive-playback" />
+        </MediaCodec>
+
+        <!-- VP8 FFmpeg Decoder -->
+        <MediaCodec name="c2.ffmpeg.vp8.decoder" type="video/x-vnd.on2.vp8">
+            <Limit name="size" min="16x16" max="1920x1080" />
+            <Limit name="alignment" value="2x2" />
+            <Limit name="block-size" value="16x16" />
+            <Limit name="blocks-per-second" min="1" max="489600" />
+            <Limit name="bitrate" range="1-40000000" />
+            <Limit name="concurrent-instances" max="8" />
+            <Limit name="performance-point-1920x1080" range="60-60" />
+            <Feature name="adaptive-playback" />
+        </MediaCodec>
+
+        <!-- VP9 FFmpeg Decoder -->
+        <MediaCodec name="c2.ffmpeg.vp9.decoder" type="video/x-vnd.on2.vp9">
+            <Limit name="size" min="16x16" max="3840x2160" />
+            <Limit name="alignment" value="2x2" />
+            <Limit name="block-size" value="16x16" />
+            <Limit name="blocks-per-second" min="1" max="1879200" />
+            <Limit name="bitrate" range="1-40000000" />
+            <Limit name="concurrent-instances" max="8" />
+            <Limit name="performance-point-1920x1080" range="60-60" />
+            <Feature name="adaptive-playback" />
+        </MediaCodec>
+
+        <!-- AV1 FFmpeg Decoder -->
+        <MediaCodec name="c2.ffmpeg.av1.decoder" type="video/av01">
+            <Limit name="size" min="16x16" max="1920x1080" />
+            <Limit name="alignment" value="2x2" />
+            <Limit name="block-size" value="16x16" />
+            <Limit name="blocks-per-second" min="1" max="489600" />
+            <Limit name="bitrate" range="1-40000000" />
+            <Limit name="concurrent-instances" max="8" />
+            <Limit name="performance-point-1920x1080" range="60-60" />
+            <Feature name="adaptive-playback" />
+        </MediaCodec>
+
+        <!-- MPEG2 FFmpeg Decoder -->
+        <MediaCodec name="c2.ffmpeg.mpeg2.decoder" type="video/mpeg2">
+            <Limit name="size" min="16x16" max="1920x1080" />
+            <Limit name="alignment" value="2x2" />
+            <Limit name="block-size" value="16x16" />
+            <Limit name="blocks-per-second" min="1" max="489600" />
+            <Limit name="bitrate" range="1-40000000" />
+            <Limit name="concurrent-instances" max="8" />
+            <Feature name="adaptive-playback" />
+        </MediaCodec>
+
+        <!-- MPEG4 FFmpeg Decoder -->
+        <MediaCodec name="c2.ffmpeg.mpeg4.decoder" type="video/mp4v-es">
+            <Limit name="size" min="16x16" max="1920x1080" />
+            <Limit name="alignment" value="2x2" />
+            <Limit name="block-size" value="16x16" />
+            <Limit name="blocks-per-second" min="1" max="489600" />
+            <Limit name="bitrate" range="1-40000000" />
+            <Limit name="concurrent-instances" max="8" />
+            <Feature name="adaptive-playback" />
+        </MediaCodec>
+
+        <!-- H.263 FFmpeg Decoder -->
+        <MediaCodec name="c2.ffmpeg.h263.decoder" type="video/3gpp">
+            <Limit name="size" min="16x16" max="704x576" />
+            <Limit name="alignment" value="2x2" />
+            <Limit name="block-size" value="16x16" />
+            <Limit name="bitrate" range="1-384000" />
+            <Limit name="concurrent-instances" max="8" />
+            <Feature name="adaptive-playback" />
+        </MediaCodec>
+    </Decoders>
+</Included>

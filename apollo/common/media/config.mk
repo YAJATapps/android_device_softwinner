@@ -26,7 +26,27 @@ PRODUCT_PROPERTY_OVERRIDES += \
     vendor.audio.output.active=AUDIO_CODEC,AUDIO_HDMI \
     vendor.audio.input.active=AUDIO_AC107
 
-# V4L2 Hardware Codec2 Service
+# Codec2 HAL Selection (FFmpeg AIDL vs V4L2)
+TARGET_USES_FFMPEG_CODEC2 ?= true
+
+CODEC_CONFIG_PATH := $(LOCAL_MODULE_PATH)/codec
+
+ifeq ($(TARGET_USES_FFMPEG_CODEC2),true)
+PRODUCT_PACKAGES += \
+    android.hardware.media.c2-service-ffmpeg
+
+PRODUCT_PROPERTY_OVERRIDES += \
+    media.c2.hal.selection=aidl \
+    debug.c2.use_dmabufheaps=1 \
+    debug.stagefright.c2-poolmask=458752 \
+    debug.stagefright.c2inputsurface=-1 \
+    persist.vendor.ffmpeg_codec2.v4l2.h264=0 \
+    persist.vendor.ffmpeg_codec2.v4l2.h265=0
+
+PRODUCT_COPY_FILES += \
+    $(CODEC_CONFIG_PATH)/media_codecs_ffmpeg.xml:$(TARGET_COPY_OUT_VENDOR)/etc/media_codecs.xml \
+    $(CODEC_CONFIG_PATH)/media_codecs_ffmpeg_c2_video.xml:$(TARGET_COPY_OUT_VENDOR)/etc/media_codecs_ffmpeg_c2_video.xml
+else
 PRODUCT_SOONG_NAMESPACES += external/v4l2_codec2
 
 PRODUCT_PACKAGES += \
@@ -41,11 +61,13 @@ PRODUCT_PROPERTY_OVERRIDES += \
     ro.vendor.v4l2_codec2.decode_concurrent_instances=4 \
     ro.vendor.v4l2_codec2.encode_concurrent_instances=4
 
-# Media Codecs Configuration
-CODEC_CONFIG_PATH := $(LOCAL_MODULE_PATH)/codec
 PRODUCT_COPY_FILES += \
-    $(CODEC_CONFIG_PATH)/media_codecs.xml:$(TARGET_COPY_OUT_VENDOR)/etc/media_codecs.xml \
-    $(CODEC_CONFIG_PATH)/media_codecs_v4l2_c2_video.xml:$(TARGET_COPY_OUT_VENDOR)/etc/media_codecs_v4l2_c2_video.xml \
+    $(CODEC_CONFIG_PATH)/media_codecs_v4l2.xml:$(TARGET_COPY_OUT_VENDOR)/etc/media_codecs.xml \
+    $(CODEC_CONFIG_PATH)/media_codecs_v4l2_c2_video.xml:$(TARGET_COPY_OUT_VENDOR)/etc/media_codecs_v4l2_c2_video.xml
+endif
+
+# Media Codecs Common Configuration
+PRODUCT_COPY_FILES += \
     frameworks/av/media/libstagefright/data/media_codecs_google_c2_audio.xml:$(TARGET_COPY_OUT_VENDOR)/etc/media_codecs_google_c2_audio.xml \
     frameworks/av/media/libstagefright/data/media_codecs_google_c2_video.xml:$(TARGET_COPY_OUT_VENDOR)/etc/media_codecs_google_c2_video.xml \
     $(CODEC_CONFIG_PATH)/media_codecs_performance.xml:$(TARGET_COPY_OUT_VENDOR)/etc/media_codecs_performance.xml \
