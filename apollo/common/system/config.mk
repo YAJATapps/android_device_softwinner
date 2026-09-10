@@ -160,6 +160,7 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_MODULE_PATH)/init.recovery.sun50iw9p1.rc:$(TARGET_COPY_OUT_VENDOR_RAMDISK)/init.recovery.sun50iw9p1.rc \
     $(LOCAL_MODULE_PATH)/ueventd.sun50iw9p1.rc:$(TARGET_COPY_OUT_VENDOR)/ueventd.rc \
     $(LOCAL_MODULE_PATH)/init.sun50iw9p1.usb.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/hw/init.sun50iw9p1.usb.rc \
+    $(LOCAL_MODULE_PATH)/init.sun50iw9p1.video.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/hw/init.sun50iw9p1.video.rc \
     $(LOCAL_MODULE_PATH)/init.scheduler.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/init.scheduler.rc \
 
 PRODUCT_COPY_FILES += \

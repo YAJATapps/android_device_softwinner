@@ -44,7 +44,7 @@ PRODUCT_PACKAGES += \
 PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.bluetooth.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.bluetooth.xml \
     frameworks/native/data/etc/android.hardware.bluetooth_le.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.bluetooth_le.xml \
-    device/softwinner/common/config/wireless/initrc/init.wireless.bluetooth.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/init.wireless.bluetooth.rc \
+    device/softwinner/common/config/wireless/initrc/init.sun50iw9p1.wireless.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/init.sun50iw9p1.wireless.rc \
     device/softwinner/apollo/common/wireless/bluetooth/bt_configure_pskey.ini:$(TARGET_COPY_OUT_VENDOR)/etc/bt_configure_pskey.ini \
     device/softwinner/apollo/common/wireless/bluetooth/bt_configure_rf.ini:$(TARGET_COPY_OUT_VENDOR)/etc/bt_configure_rf.ini \
     device/softwinner/apollo/common/wireless/bluetooth/bt_vendor.conf:$(TARGET_COPY_OUT_VENDOR)/etc/bluetooth/bt_vendor.conf \
