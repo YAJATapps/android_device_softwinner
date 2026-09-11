@@ -74,14 +74,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 # system
 PRODUCT_PROPERTY_OVERRIDES += \
-    ro.control_privapp_permissions=log \
-    init.userspace_reboot.is_supported=1 \
-
-PRODUCT_PRODUCT_PROPERTIES += \
-    ro.control_privapp_permissions=log
-
-PRODUCT_SYSTEM_PROPERTIES += \
-    ro.control_privapp_permissions=log
+    init.userspace_reboot.is_supported=1
 
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.soc.manufacturer=Allwinner \
