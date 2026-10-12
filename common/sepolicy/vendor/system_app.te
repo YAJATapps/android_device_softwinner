@@ -1,7 +1,6 @@
 allow system_app { cache_file cache_recovery_file }:dir create_dir_perms;
 allow system_app { cache_file cache_recovery_file }:file create_file_perms;
 allow system_app unlabeled:filesystem getattr;
-allow system_app fs_bpf:dir search;
 #allow system_app vendor_default_prop:file { open getattr read };
 allow system_app sysfs_extcon:dir { search read };
 allow system_app cedar_device:chr_file { open read write ioctl };
