@@ -1,7 +1,7 @@
 type systemmix, domain, mlstrustedsubject;
 type systemmix_exec,exec_type,file_type,system_file_type;
 init_daemon_domain(systemmix);
-typeattribute systemmix coredomain;
+#typeattribute systemmix coredomain;
 allow systemmix servicemanager:binder { call transfer };
 #allow systemmix systemmix:capability dac_override;
 allow systemmix fuse:dir { search write add_name};
