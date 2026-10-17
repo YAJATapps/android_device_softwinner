@@ -137,6 +137,7 @@ BOARD_KERNEL_CMDLINE += androidboot.partition_map=mmcblk0p9,super;mmcblk0p10,mis
 
 BOARD_KERNEL_CMDLINE += root=/dev/ram0
 BOARD_KERNEL_CMDLINE += keep_bootcon
+BOARD_KERNEL_CMDLINE += console=tty0
 BOARD_KERNEL_CMDLINE += console=ttyS0,115200
 BOARD_KERNEL_CMDLINE += cma=128M
 BOARD_KERNEL_CMDLINE += printk.devkmsg=on
